@@ -66,3 +66,12 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-acknowledgements.markdown
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-acknowledgements.plist
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-dummy.m
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-frameworks.sh
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-Info.plist
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-umbrella.h
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.debug.xcconfig
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.modulemap
+Pods/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.release.xcconfig

@@ -11,6 +11,17 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/weixhe/CVBaseKit.git", :tag => "1.0.2" }         #存储库的git地址，以及tag值
   s.source_files =  "CVBaseKit/**/*.{swift}" #需要托管的源代码路径
   s.requires_arc = true #是否支持ARC
+
+  #  组件Global
+  s.subspec 'Global' do |gs|
+  	gs.source_files = "CVBaseKit/Global/*.{swift}" #需要托管的源代码路径
+  end
+
+  #  组件Device
+  s.subspec 'Global' do |ds|
+  	ds.source_files = "CVBaseKit/Device/*.{swift, plist}" #需要托管的源代码路径
+  end
+
   # s.dependency "KeychainAccess"    #所依赖的第三方库，没有就不用写
 
 end

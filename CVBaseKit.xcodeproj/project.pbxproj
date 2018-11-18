@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14804957CDBED7FB3FE4D169 /* Pods_CVBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */; };
 		8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175721A0FA62002C8500 /* AppDelegate.swift */; };
 		8474175A21A0FA62002C8500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175921A0FA62002C8500 /* ViewController.swift */; };
 		8474175D21A0FA62002C8500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8474175B21A0FA62002C8500 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		188981AD263230FE84E73895 /* Pods-CVBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.debug.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
+		64CE809C3976F1A601771800 /* Pods-CVBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.release.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.release.xcconfig"; sourceTree = "<group>"; };
 		8474175421A0FA62002C8500 /* CVBaseKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVBaseKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8474175721A0FA62002C8500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8474175921A0FA62002C8500 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		8474177321A19BBC002C8500 /* iPhoneModels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iPhoneModels.plist; sourceTree = "<group>"; };
 		8474177421A19BBC002C8500 /* CVBatteryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVBatteryManager.swift; sourceTree = "<group>"; };
 		8474177521A19BBC002C8500 /* CVDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDevice.swift; sourceTree = "<group>"; };
+		E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CVBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14804957CDBED7FB3FE4D169 /* Pods_CVBaseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26BABCE408EE70AF59BE9C68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8474174B21A0FA62002C8500 = {
 			isa = PBXGroup;
 			children = (
 				8474175621A0FA62002C8500 /* CVBaseKit */,
 				8474175521A0FA62002C8500 /* Products */,
+				86BF1248E582EDC3460E2083 /* Pods */,
+				26BABCE408EE70AF59BE9C68 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +77,7 @@
 		8474175621A0FA62002C8500 /* CVBaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				8474176E21A17F58002C8500 /* Global */,
 				8474177221A19BA7002C8500 /* CVDevice */,
 				8474176921A17EDD002C8500 /* Component */,
 				8474175721A0FA62002C8500 /* AppDelegate.swift */,
@@ -77,7 +93,6 @@
 		8474176921A17EDD002C8500 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				8474176E21A17F58002C8500 /* Global */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -100,6 +115,15 @@
 			path = CVDevice;
 			sourceTree = "<group>";
 		};
+		86BF1248E582EDC3460E2083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				188981AD263230FE84E73895 /* Pods-CVBaseKit.debug.xcconfig */,
+				64CE809C3976F1A601771800 /* Pods-CVBaseKit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8474176621A0FA63002C8500 /* Build configuration list for PBXNativeTarget "CVBaseKit" */;
 			buildPhases = (
+				30497A350144EE3C9B20A0A4 /* [CP] Check Pods Manifest.lock */,
 				8474175021A0FA62002C8500 /* Sources */,
 				8474175121A0FA62002C8500 /* Frameworks */,
 				8474175221A0FA62002C8500 /* Resources */,
+				4287D6F9193D9073FCF3511E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,6 +192,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30497A350144EE3C9B20A0A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CVBaseKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4287D6F9193D9073FCF3511E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8474175021A0FA62002C8500 /* Sources */ = {
@@ -320,6 +393,7 @@
 		};
 		8474176721A0FA63002C8500 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 188981AD263230FE84E73895 /* Pods-CVBaseKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,6 +413,7 @@
 		};
 		8474176821A0FA63002C8500 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64CE809C3976F1A601771800 /* Pods-CVBaseKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

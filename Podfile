@@ -6,5 +6,7 @@ target 'CVBaseKit' do
   use_frameworks!
 
   # Pods for CVBaseKit
+  pod 'KeychainAccess'      # 钥匙串   https://github.com/kishikawakatsumi/KeychainAccess
+
 
 end
