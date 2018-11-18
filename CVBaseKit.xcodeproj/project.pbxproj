@@ -13,6 +13,9 @@
 		8474175F21A0FA63002C8500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8474175E21A0FA63002C8500 /* Assets.xcassets */; };
 		8474176221A0FA63002C8500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8474176021A0FA63002C8500 /* LaunchScreen.storyboard */; };
 		8474176D21A17F47002C8500 /* CVConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474176C21A17F47002C8500 /* CVConst.swift */; };
+		8474177621A19BBC002C8500 /* iPhoneModels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8474177321A19BBC002C8500 /* iPhoneModels.plist */; };
+		8474177721A19BBC002C8500 /* CVBatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177421A19BBC002C8500 /* CVBatteryManager.swift */; };
+		8474177821A19BBC002C8500 /* CVDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177521A19BBC002C8500 /* CVDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		8474176121A0FA63002C8500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8474176321A0FA63002C8500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8474176C21A17F47002C8500 /* CVConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVConst.swift; sourceTree = "<group>"; };
+		8474177321A19BBC002C8500 /* iPhoneModels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iPhoneModels.plist; sourceTree = "<group>"; };
+		8474177421A19BBC002C8500 /* CVBatteryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVBatteryManager.swift; sourceTree = "<group>"; };
+		8474177521A19BBC002C8500 /* CVDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		8474175621A0FA62002C8500 /* CVBaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				8474177221A19BA7002C8500 /* CVDevice */,
 				8474176921A17EDD002C8500 /* Component */,
 				8474175721A0FA62002C8500 /* AppDelegate.swift */,
 				8474175921A0FA62002C8500 /* ViewController.swift */,
@@ -81,6 +88,16 @@
 				8474176C21A17F47002C8500 /* CVConst.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		8474177221A19BA7002C8500 /* CVDevice */ = {
+			isa = PBXGroup;
+			children = (
+				8474177421A19BBC002C8500 /* CVBatteryManager.swift */,
+				8474177521A19BBC002C8500 /* CVDevice.swift */,
+				8474177321A19BBC002C8500 /* iPhoneModels.plist */,
+			);
+			path = CVDevice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +161,7 @@
 				8474176221A0FA63002C8500 /* LaunchScreen.storyboard in Resources */,
 				8474175F21A0FA63002C8500 /* Assets.xcassets in Resources */,
 				8474175D21A0FA62002C8500 /* Main.storyboard in Resources */,
+				8474177621A19BBC002C8500 /* iPhoneModels.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8474177821A19BBC002C8500 /* CVDevice.swift in Sources */,
+				8474177721A19BBC002C8500 /* CVBatteryManager.swift in Sources */,
 				8474176D21A17F47002C8500 /* CVConst.swift in Sources */,
 				8474175A21A0FA62002C8500 /* ViewController.swift in Sources */,
 				8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */,
