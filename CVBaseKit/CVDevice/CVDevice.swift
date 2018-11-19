@@ -79,12 +79,12 @@ public struct CVDevice {
     
     /// 获取WIFI 名字
     static func getWifiName() -> String {
-        return self.getWIFIInfo().0
+        return self.getWIFIInfo().0 ?? ""
     }
     
     /// 获取WIFI MAC 地址
     static func getWifiMacAddress() -> String {
-        return self.getWIFIInfo().1
+        return self.getWIFIInfo().1 ?? ""
     }
     
     /// 设备的唯一标示UUID（这里的UUID是不改变的，除非重置手机）
@@ -118,9 +118,10 @@ private extension CVDevice {
     
     typealias IPName = String
     typealias IPMacAddress = String
-    static func getWIFIInfo() -> (IPName, IPMacAddress) {
+    static func getWIFIInfo() -> (IPName?, IPMacAddress?) {
         
-        let interfaces: NSArray = CNCopySupportedInterfaces()!
+        let interfaces: NSArray = CNCopySupportedInterfaces() ?? []
+        
         var ssid: String?
         var mac: String?
         
@@ -131,7 +132,7 @@ private extension CVDevice {
                 mac = dict["BSSID"] as? String
             }
         }
-        return (ssid!, mac!)
+        return (ssid, mac)
     }
     
     

@@ -21,7 +21,7 @@ func CVLog<N>(_ message: N, file: String = #file, method: String = #function, li
     #endif
 }
 
-let APDL = UIApplication.shared.delegate as! AppDelegate
+//let APDL = UIApplication.shared.delegate as! AppDelegate
 
 
 
@@ -29,12 +29,13 @@ let APDL = UIApplication.shared.delegate as! AppDelegate
 // MARK: - 屏幕尺寸
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
+
 let SCREEN_WIDTH_SAFE = screen_width_safe()
 let SCREEN_HEIGHT_SAFE = screen_height_safe()
 
-let SafeAreaInsets = SafeAreaInsetsIn(view: APDL.window)
+let SafeAreaInsets = SafeAreaInsetsIn(view: UIApplication.shared.windows.first)
 
-let Nav_height = Navigation_height()
+let Nav_Height = Navigation_height()
 let Tab_Height = TabBar_height()
 
 
@@ -53,15 +54,13 @@ func SafeAreaInsetsIn(view: UIView?) -> UIEdgeInsets {
     }
 }
 
-/// 返回view的高度，去除安全区域
+// 返回view的高度，去除安全区域
 private func screen_height_safe() -> CGFloat {
-    let insets = SafeAreaInsetsIn(view: APDL.window)
-    return SCREEN_HEIGHT - insets.top - insets.bottom
+    return SCREEN_HEIGHT - SafeAreaInsets.top - SafeAreaInsets.bottom
 }
 
 private func screen_width_safe() -> CGFloat {
-    let insets = SafeAreaInsetsIn(view: APDL.window)
-    return SCREEN_WIDTH - insets.left - insets.right
+    return SCREEN_WIDTH - SafeAreaInsets.left - SafeAreaInsets.right
 }
 
 /// 导航栏的高度：导航栏高（44）+ 状态栏高（普通的20，iPhoneX是44）
@@ -122,7 +121,7 @@ let SysVersion = UIDevice.current.systemVersion
 let SysName = UIDevice.current.systemName
 
 /// 程序名称
-let AppName = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String
+let AppName = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? ""
 /// 主程序版本号
 let AppVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 /// build版本
