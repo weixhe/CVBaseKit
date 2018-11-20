@@ -19,7 +19,7 @@ public struct CVDevice {
     
     /// 官方设备型号-名字：https://www.theiphonewiki.com/wiki/Models
     /// 获取设备的型号, eg: iPhone 11,2
-    static func getDeviceModel() -> String {
+    public static func getDeviceModel() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
@@ -31,7 +31,7 @@ public struct CVDevice {
     }
     
     /// 获取设备名字, eg: iPhone XS Max
-    static func getDeviceName() -> String {
+    public static func getDeviceName() -> String {
         
         guard let path = Bundle.main.path(forResource: "iPhoneModels", ofType: "plist") else {
             return "Unkown Device"
@@ -45,7 +45,7 @@ public struct CVDevice {
     }
     
     /// 获取IP地址, eg: 192.168.31.57
-    static func getIPAddresses() -> String {
+    public static func getIPAddresses() -> String {
         
         var address: String?
         
@@ -78,17 +78,17 @@ public struct CVDevice {
     }
     
     /// 获取WIFI 名字
-    static func getWifiName() -> String {
+    public static func getWifiName() -> String {
         return self.getWIFIInfo().0 ?? ""
     }
     
     /// 获取WIFI MAC 地址
-    static func getWifiMacAddress() -> String {
+    public static func getWifiMacAddress() -> String {
         return self.getWIFIInfo().1 ?? ""
     }
     
     /// 设备的唯一标示UUID（这里的UUID是不改变的，除非重置手机）
-    static func getUUID() -> String {
+    public static func getUUID() -> String {
         
         struct PriviteKey {
             static let server = "com.caven.project.keychain"
@@ -107,9 +107,9 @@ public struct CVDevice {
 
 extension CVDevice {
     /// 系统版本号
-    static let sysVersion = UIDevice.current.systemVersion
+    public static let sysVersion = UIDevice.current.systemVersion
     /// 系统的名称， eg:"iOS", "tvOS", "watchOS", "macOS"
-    static let sysName = UIDevice.current.systemName
+    public static let sysName = UIDevice.current.systemName
     
 }
 

@@ -14,7 +14,7 @@ import UIKit
  *   定义DUBUG宏 TARGETS --> Build Settings --> Swift Complier - Custom Flags --> Other Swift Flags --> DEBUG
  　　　　格式 -D DEBUG 。也就是声明的宏之前要加一个这样的符号 -D 。它会自动分成两行显示。
  */
-func CVLog<N>(_ message: N, file: String = #file, method: String = #function, line: Int = #line) {
+public func CVLog<N>(_ message: N, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG // 若是Debug模式下，则打印
     let fileName = (file as NSString).lastPathComponent
     print("\n文件名: \(fileName)\n方法: \(method)\n行号: \(line)\n打印信息: \(message)");
@@ -27,21 +27,21 @@ func CVLog<N>(_ message: N, file: String = #file, method: String = #function, li
 
 
 // MARK: - 屏幕尺寸
-let SCREEN_WIDTH = UIScreen.main.bounds.width
-let SCREEN_HEIGHT = UIScreen.main.bounds.height
+public let SCREEN_WIDTH = UIScreen.main.bounds.width
+public let SCREEN_HEIGHT = UIScreen.main.bounds.height
 
-let SCREEN_WIDTH_SAFE = screen_width_safe()
-let SCREEN_HEIGHT_SAFE = screen_height_safe()
+public let SCREEN_WIDTH_SAFE = screen_width_safe()
+public let SCREEN_HEIGHT_SAFE = screen_height_safe()
 
-let SafeAreaInsets = SafeAreaInsetsIn(view: UIApplication.shared.windows.first)
+public let SafeAreaInsets = SafeAreaInsetsIn(view: UIApplication.shared.windows.first)
 
-let Nav_Height = Navigation_height()
-let Tab_Height = TabBar_height()
+public let Nav_Height = Navigation_height()
+public let Tab_Height = TabBar_height()
 
 
 // MARK: - 安全区域
 /// 返回view的安全区域
-func SafeAreaInsetsIn(view: UIView?) -> UIEdgeInsets {
+public func SafeAreaInsetsIn(view: UIView?) -> UIEdgeInsets {
     
     if #available(iOS 11.0, *) {
         if let view = view {
@@ -78,29 +78,29 @@ private func TabBar_height() -> CGFloat {
 
 // MARK: - 系统版本
 /// 判断某个确定的系统版本，eg：version == 8.0
-func SysVer(_ version: Float) -> Bool {
+public func SysVer(_ version: Float) -> Bool {
     return (UIDevice.current.systemVersion as NSString).floatValue == version
 }
 
 /// 判断系统版本小于某版本，eg：version < 8.0
-func SysVerBelow(_ version: Float) -> Bool {
+public func SysVerBelow(_ version: Float) -> Bool {
     return (UIDevice.current.systemVersion as NSString).floatValue < version
 }
 
 /// 判断系统版本大于某版本，eg：version > 8.0
-func SysVerAboard(_ version: Float) -> Bool {
+public func SysVerAboard(_ version: Float) -> Bool {
     return (UIDevice.current.systemVersion as NSString).floatValue > version
 }
 
 /// 判断系统版本介于两个版本之间，eg：8.0 < version < 12.0
-func SysVerBetween(minVersion: Float, maxVersion: Float) -> Bool {
+public func SysVerBetween(minVersion: Float, maxVersion: Float) -> Bool {
     return (UIDevice.current.systemVersion as NSString).floatValue > minVersion && (UIDevice.current.systemVersion as NSString).floatValue < minVersion
 }
 
 
 // MARK: - 屏幕适配
 /// 根据设计图，进行尺寸变换, 默认：375
-func Factor(reference: CGFloat = 375, x: CGFloat) -> CGFloat {
+public func Factor(reference: CGFloat = 375, x: CGFloat) -> CGFloat {
     return SCREEN_WIDTH / reference * x
 }
 
@@ -116,16 +116,16 @@ func Factor(reference: CGFloat = 375, x: CGFloat) -> CGFloat {
 
 // MARK: - 设备信息，版本号
 /// 系统版本号
-let SysVersion = UIDevice.current.systemVersion
+public let SysVersion = UIDevice.current.systemVersion
 /// 系统名称("iOS", "tvOS", "watchOS", "macOS")
-let SysName = UIDevice.current.systemName
+public let SysName = UIDevice.current.systemName
 
 /// 程序名称
-let AppName = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? ""
+public let AppName = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? ""
 /// 主程序版本号
-let AppVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+public let AppVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 /// build版本
-let AppBuildVersion = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+public let AppBuildVersion = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
 
 
 
@@ -134,21 +134,21 @@ let AppBuildVersion = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
 
 // MARK: - 目录路径
 // Documents目录路径
-let DocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-let LibraryPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
+public let DocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+public let LibraryPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
 // Library/Caches目录路径方法
-let CachesPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
+public let CachesPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
 // Library/Application Support目录路径
-let ApplicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+public let ApplicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
 // tmp目录路径
-let TmpPath = NSTemporaryDirectory()
+public let TmpPath = NSTemporaryDirectory()
 // 沙盒主目录路径
-let HomePath = NSHomeDirectory()
+public let HomePath = NSHomeDirectory()
 
 
 
 // MARK: - 取随机数
-func Arc4random(min: UInt32 = 0, max: UInt32) -> UInt32 {
+public func Arc4random(min: UInt32 = 0, max: UInt32) -> UInt32 {
     guard max > min else { return 0 }
     return Darwin.arc4random() % max + min
 }

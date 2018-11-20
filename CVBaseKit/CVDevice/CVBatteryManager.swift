@@ -22,15 +22,15 @@ public protocol CVBantterManagerDelegate: class {
 public class CVBantterManager {
  
     // 单例
-    static let share = CVBantterManager()
+    public static let share = CVBantterManager()
     
-    weak var delegate: CVBantterManagerDelegate?
+    public weak var delegate: CVBantterManagerDelegate?
     
-    private(set) var capacity: UInt?    // 电池容量
-    private(set) var voltage: UInt? // 电压
+    public private(set) var capacity: UInt?    // 电池容量
+    public private(set) var voltage: UInt? // 电压
     
-    private(set) var levelPercent: UInt?    // 电量百分比
-    private(set) var status: String?    // 状态
+    public private(set) var levelPercent: UInt?    // 电量百分比
+    public private(set) var status: String?    // 状态
     
 }
 
@@ -38,7 +38,7 @@ public class CVBantterManager {
 extension CVBantterManager {
     
     /// 开启监听电池变化
-    func startBatterMonitorint() {
+    public func startBatterMonitorint() {
         if isEnabledMonitoring == false {
             NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelUpdated(note:)), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(batteryLavelStatusUpdate(note:)), name: UIDevice.batteryStateDidChangeNotification, object: nil)
@@ -53,7 +53,7 @@ extension CVBantterManager {
     }
     
     /// 停止监听电池变化
-    func stopBatterMonitorint() {
+    public func stopBatterMonitorint() {
         if isEnabledMonitoring == true {
             NotificationCenter.default.removeObserver(self)
             UIDevice.current.isBatteryMonitoringEnabled = false
