@@ -14,12 +14,12 @@ Pod::Spec.new do |s|
 
   #  组件Global
   s.subspec 'Global' do |gs|
-  	gs.source_files = "CVBaseKit/Global/CVConst.swift" #需要托管的源代码路径	
+  	gs.source_files = "Classes/Global/CVConst.swift" #需要托管的源代码路径	
   end
 
   #  组件Device
   s.subspec 'CVDevice' do |ds|
-  	ds.source_files = "CVBaseKit/CVDevice/*.{swift, plist}" #需要托管的源代码路径
+  	ds.source_files = "Classes/CVDevice/*.{swift, plist}" #需要托管的源代码路径
   	ds.dependency "KeychainAccess"    #所依赖的第三方库，没有就不用写
   	ds.framework = "SystemConfiguration"
   end

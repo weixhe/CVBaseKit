@@ -21,6 +21,7 @@
 		8474177E21A1A733002C8500 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177D21A1A733002C8500 /* DemoViewController.swift */; };
 		8474178021A1A7E4002C8500 /* DemoConverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177F21A1A7E4002C8500 /* DemoConverable.swift */; };
 		8474178221A1A9FD002C8500 /* DeviceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474178121A1A9FD002C8500 /* DeviceDemo.swift */; };
+		84C91C1321A8E63400B9BBFB /* CVTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1221A8E63400B9BBFB /* CVTabbarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8474177D21A1A733002C8500 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		8474177F21A1A7E4002C8500 /* DemoConverable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoConverable.swift; sourceTree = "<group>"; };
 		8474178121A1A9FD002C8500 /* DeviceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemo.swift; sourceTree = "<group>"; };
+		84C91C1221A8E63400B9BBFB /* CVTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabbarViewController.swift; sourceTree = "<group>"; };
 		E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CVBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8474177921A1A404002C8500 /* Demo */,
-				8474175621A0FA62002C8500 /* CVBaseKit */,
+				8474175621A0FA62002C8500 /* Classes */,
 				8474175521A0FA62002C8500 /* Products */,
 				86BF1248E582EDC3460E2083 /* Pods */,
 				26BABCE408EE70AF59BE9C68 /* Frameworks */,
@@ -83,24 +85,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8474175621A0FA62002C8500 /* CVBaseKit */ = {
+		8474175621A0FA62002C8500 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84C91C1121A8E60400B9BBFB /* Components */,
 				8474176E21A17F58002C8500 /* Global */,
 				8474177221A19BA7002C8500 /* CVDevice */,
-				8474176921A17EDD002C8500 /* Component */,
 				8474175B21A0FA62002C8500 /* Main.storyboard */,
 				8474175E21A0FA63002C8500 /* Assets.xcassets */,
 				8474176021A0FA63002C8500 /* LaunchScreen.storyboard */,
 			);
-			path = CVBaseKit;
-			sourceTree = "<group>";
-		};
-		8474176921A17EDD002C8500 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Component;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		8474176E21A17F58002C8500 /* Global */ = {
@@ -133,6 +128,14 @@
 				8474178121A1A9FD002C8500 /* DeviceDemo.swift */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		84C91C1121A8E60400B9BBFB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				84C91C1221A8E63400B9BBFB /* CVTabbarViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		86BF1248E582EDC3460E2083 /* Pods */ = {
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8474177821A19BBC002C8500 /* CVDevice.swift in Sources */,
+				84C91C1321A8E63400B9BBFB /* CVTabbarViewController.swift in Sources */,
 				8474177721A19BBC002C8500 /* CVBatteryManager.swift in Sources */,
 				8474176D21A17F47002C8500 /* CVConst.swift in Sources */,
 				8474175A21A0FA62002C8500 /* ViewController.swift in Sources */,
