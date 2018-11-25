@@ -50,7 +50,7 @@ extension DemoTabBarController {
         let nav_Friends = CVNavDemoViewController(rootViewController: friendsVC)
         
         self.viewControllers = [nav_Home, nav_Recommend, nav_Test, nav_ShoppingCart, nav_SmallVideo, nav_Friends]
-        self.showItems = [1, 2, 4, 5]
+        self.showItems = [0, 1, 2, 3, 4, 5]
         self.updateLayout()
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerRunning(timer:)), userInfo: nil, repeats: true)
@@ -72,6 +72,11 @@ extension DemoTabBarController {
             self.updatePaopao(text: nil, offset: CGSize(width: 15, height: -15), at: 1, isHidden: false)
         } else {
             self.updatePaopao(text: nil, offset: CGSize(width: 15, height: -15), at: 1, isHidden: true)
+        }
+        
+        if n == 32 {
+
+//            self.changeToIndex(3)
         }
     }
 }

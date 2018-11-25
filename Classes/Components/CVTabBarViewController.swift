@@ -10,6 +10,7 @@ import UIKit
 
 private let heightItem: CGFloat = 49
 
+
 /// 自定义tabBarController，必须调用 updateLayout() 方法才能正确显示item
 
 open class CVTabBarViewController: UITabBarController {
@@ -19,15 +20,14 @@ open class CVTabBarViewController: UITabBarController {
     private var tabbarItems: [CVTabBarItem] = []  // tabBar上所有的item
     open var showItems: [Int] = []    // 控制在tabbar上面显示的item
     
-    open override var viewControllers: [UIViewController]? { set { _setViewControllers(newValue) } get { return _viewControllers() } } //{ didSet { _viewControllersDidSet() } }
+    open override var viewControllers: [UIViewController]? { set { _setViewControllers(newValue) } get { return _viewControllers() } }
     open override var selectedIndex: Int { didSet { _selectedIndexDidSet() } }
 
     private var totalViewCotrollers: [UIViewController]?
-    
-    
-//    deinit {
-//        removeNotify()
-//    }
+
+    deinit {
+
+    }
 }
 
 // MARK: - Life Cycle
@@ -35,30 +35,13 @@ extension CVTabBarViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-//        tabBar.isHidden = true
-        
         tabBar.addSubview(cv_tabBar)
-        
-//        addNotify()
     }
 }
 
 // MARK: - Notification
 extension CVTabBarViewController {
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let notiObj = object as? UITabBar, notiObj == tabBar {
-            if keyPath == "frame" {
-                cv_tabBar.frame = tabBar.frame
-            }
-            if keyPath == "isHidden" {
-                if change != nil {
-                    if change![.newKey] as! Bool == true {
-                        tabBar.isHidden = false
-                    }
-                }
-            }
-        }
-    }
+    
 }
 
 // MARK: - Public Methods
@@ -68,14 +51,6 @@ extension CVTabBarViewController {
     public func updateLayout() {
         guard tabbarItems.count > 0 else { return }
         guard totalViewCotrollers != nil else { return }
-        
-        for subview in tabBar.subviews {
-            if subview.isKind(of: CVTabBar.self) {
-                continue
-            } else {
-                subview.removeFromSuperview()
-            }
-        }
         
         for item in tabbarItems {
             item.delegate = nil
@@ -94,6 +69,7 @@ extension CVTabBarViewController {
         // 遍历showItems 数组中的index， 从 tabBarItems 中取出对应的item显示到tabbar上，以实现多个item，任意显示
         var cacheViewControllers: [UIViewController] = []
         for (index, key) in showItems.enumerated() {
+            if totalViewCotrollers!.count <= key { continue }
             cacheViewControllers.append(totalViewCotrollers![key])
             
             let item = tabbarItems[key]
@@ -104,6 +80,8 @@ extension CVTabBarViewController {
         }
         
         self.viewControllers = cacheViewControllers
+        
+        
     }
     
     /// 更新item上的paopao数字, （中心的）偏移量，是否i隐藏
@@ -115,6 +93,11 @@ extension CVTabBarViewController {
         let item: CVTabBarItem = tabbarItems[shown]
         item.updatePaopao(text: text, offset: offset, isHidden: isHidden)
     }
+    
+    /// 在外界修改tab上的index
+    func changeToIndex(_ index: Int) {
+        selectedIndex = index
+    }
 }
 
 // MARK: - CVTabBarItemDelegate
@@ -123,31 +106,13 @@ extension CVTabBarViewController: CVTabBarItemDelegate {
         
         guard tabbarItems.count > 0 else { return }
         
-        // 遍历，修改 item 选中状态
-        for (index, key) in showItems.enumerated() {
-            let item = tabbarItems[key]
-            if key == atIndex {
-                item.isSelected = true
-                selectedIndex = index
-            } else {
-                item.isSelected = false
-            }
-        }
+        selectedIndex = showItems.firstIndex(of: atIndex) ?? 0
     }
 }
 
 // MARK: - Private Methods
 fileprivate extension CVTabBarViewController {
-    func addNotify() {
-        tabBar.addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
-        tabBar.addObserver(self, forKeyPath: "isHidden", options: [.new, .old], context: nil)
-    }
-    
-    func removeNotify() {
-        tabBar.removeObserver(self, forKeyPath: "frame")
-        tabBar.removeObserver(self, forKeyPath: "isHidden")
-    }
-    
+   
 }
 
 // MARK: - Getter Setter
@@ -158,29 +123,10 @@ fileprivate extension CVTabBarViewController {
         return tb
     }
     
-    func _viewControllersDidSet() {
-        // 遍历所有的控制器，生成对应的cv_tabBarItem
-        if viewControllers != nil {
-            for vc in viewControllers! {
-                if vc.isKind(of: UINavigationController.self) {
-                    
-                    if let controller = (vc as! UINavigationController).viewControllers.first, let item = controller.cv_tabBarItem {
-                        tabbarItems.append(item)
-                        item.index = tabbarItems.count - 1
-                    }
-                } else if vc.isKind(of: UIViewController.self) {
-                    if let item = vc.cv_tabBarItem {
-                        tabbarItems.append(item)
-                        item.index = tabbarItems.count - 1
-                    }
-                }
-            }
-        }
-    }
-    
     func _selectedIndexDidSet() {
         // 遍历，修改 item 选中状态
         for (index, key) in showItems.enumerated() {
+            if tabbarItems.count <= key { continue }
             let item = tabbarItems[key]
             if index == selectedIndex {
                 item.isSelected = true
@@ -190,11 +136,12 @@ fileprivate extension CVTabBarViewController {
         }
     }
     
-    
     func _setViewControllers(_ viewControllers: [UIViewController]?) {
+        
         if showItems.count > 0 {
             super.viewControllers = viewControllers
         }
+        
         if totalViewCotrollers == nil || totalViewCotrollers!.count == 0 {
             totalViewCotrollers = viewControllers
             
@@ -220,5 +167,15 @@ fileprivate extension CVTabBarViewController {
     
     func _viewControllers() -> [UIViewController]? {
         return super.viewControllers
+    }
+}
+
+extension UITabBar {
+    
+    // 为了只添加自定义的tabbar，重写父类的方法，进行过滤
+    open override func addSubview(_ view: UIView) {
+        if view.isKind(of: CVTabBar.self) {
+            super.addSubview(view)
+        }
     }
 }
