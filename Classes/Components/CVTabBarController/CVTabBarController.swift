@@ -1,5 +1,5 @@
 //
-//  CVTabBarViewController.swift
+//  CVTabBarController.swift
 //  CVBaseKit
 //
 //  Created by caven on 2018/11/24.
@@ -13,7 +13,7 @@ private let heightItem: CGFloat = 49
 
 /// 自定义tabBarController，必须调用 updateLayout() 方法才能正确显示item
 
-open class CVTabBarViewController: UITabBarController {
+open class CVTabBarController: UITabBarController {
 
     open lazy var cv_tabBar: CVTabBar = { return _cv_tabbar() }()
     
@@ -24,28 +24,74 @@ open class CVTabBarViewController: UITabBarController {
     open override var selectedIndex: Int { didSet { _selectedIndexDidSet() } }
 
     private var totalViewCotrollers: [UIViewController]?
-
-    deinit {
-
-    }
+    
+    // 可以设置特殊的view
+    private var specialView: UIView?
+    private var specialIndex: Int?
+    
 }
 
 // MARK: - Life Cycle
-extension CVTabBarViewController {
+extension CVTabBarController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
         tabBar.addSubview(cv_tabBar)
+        
+    }
+    
+    open override func willMove(toParent parent: UIViewController?) {
+    }
+    
+    open override func didMove(toParent parent: UIViewController?) {
+        
+    }
+    
+    open override func viewWillLayoutSubviews() {
+        
+        self.updateLayout()
+        
+        // 计算显示的个数
+        var willShownCount: Int = 0
+        for value in showItems {
+            if tabbarItems.count > value {
+                willShownCount += 1
+            }
+        }
+        
+        // 计算宽度
+        let width: CGFloat
+        if let view = specialView {
+            width = (UIScreen.main.bounds.width - view.frame.width) / CGFloat(willShownCount)
+            // 布局宽度
+            for i in 0..<willShownCount + 1 {
+                if i < specialIndex! {
+                    let item = tabbarItems[i]
+                    item.frame = CGRect(x: width * CGFloat(i), y: 0, width: width, height: heightItem)
+                } else if i == specialIndex! {
+                    let x: CGFloat = CGFloat(specialIndex!) * width
+                    specialView!.frame = CGRect(origin: CGPoint(x: x, y: 0), size: specialView!.frame.size)
+                } else {
+                    let item = tabbarItems[i-1]
+                    item.frame = CGRect(x: width * CGFloat(i), y: 0, width: width, height: heightItem)
+                }
+            }
+        } else {
+            width = UIScreen.main.bounds.width / CGFloat(willShownCount)
+            // 布局宽度
+            for i in 0..<willShownCount {
+                let item = tabbarItems[i]
+                item.frame = CGRect(x: width * CGFloat(i), y: 0, width: width, height: heightItem)
+            }
+        }
     }
 }
 
 // MARK: - Notification
-extension CVTabBarViewController {
-    
-}
+extension CVTabBarController {}
 
 // MARK: - Public Methods
-extension CVTabBarViewController {
+extension CVTabBarController {
     
     /// 更新TabBar上的item
     public func updateLayout() {
@@ -64,10 +110,9 @@ extension CVTabBarViewController {
             }
         }
         
-        let width = UIScreen.main.bounds.width / CGFloat(showItems.count)
-        
         // 遍历showItems 数组中的index， 从 tabBarItems 中取出对应的item显示到tabbar上，以实现多个item，任意显示
         var cacheViewControllers: [UIViewController] = []
+        
         for (index, key) in showItems.enumerated() {
             if totalViewCotrollers!.count <= key { continue }
             cacheViewControllers.append(totalViewCotrollers![key])
@@ -75,13 +120,14 @@ extension CVTabBarViewController {
             let item = tabbarItems[key]
             item.delegate = self
             cv_tabBar.addSubview(item)
-            item.frame = CGRect(x: width * CGFloat(index), y: 0, width: width, height: heightItem)
             item.isSelected = index == selectedIndex ? true : false
         }
         
+        if let view = specialView {
+            cv_tabBar.addSubview(view)
+        }
+        
         self.viewControllers = cacheViewControllers
-        
-        
     }
     
     /// 更新item上的paopao数字, （中心的）偏移量，是否i隐藏
@@ -98,10 +144,19 @@ extension CVTabBarViewController {
     func changeToIndex(_ index: Int) {
         selectedIndex = index
     }
+    
+    /// 添加特殊的itemView, 只能添加一个
+    func insert(view: UIView, at index: Int) {
+        specialView = view
+        specialIndex = index
+        
+        updateLayout()
+    }
+    
 }
 
 // MARK: - CVTabBarItemDelegate
-extension CVTabBarViewController: CVTabBarItemDelegate {
+extension CVTabBarController: CVTabBarItemDelegate {
     public func tabBarItem(_ tabBarItem: CVTabBarItem, didSelected atIndex: Int) {
         
         guard tabbarItems.count > 0 else { return }
@@ -111,12 +166,10 @@ extension CVTabBarViewController: CVTabBarItemDelegate {
 }
 
 // MARK: - Private Methods
-fileprivate extension CVTabBarViewController {
-   
-}
+fileprivate extension CVTabBarController {}
 
 // MARK: - Getter Setter
-fileprivate extension CVTabBarViewController {
+fileprivate extension CVTabBarController {
     
     func _cv_tabbar() -> CVTabBar {
         let tb = CVTabBar(frame: self.tabBar.bounds)
@@ -140,6 +193,7 @@ fileprivate extension CVTabBarViewController {
         
         if showItems.count > 0 {
             super.viewControllers = viewControllers
+            self.moreNavigationController.isNavigationBarHidden = true
         }
         
         if totalViewCotrollers == nil || totalViewCotrollers!.count == 0 {

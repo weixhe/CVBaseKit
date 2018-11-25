@@ -10,6 +10,7 @@
 		14804957CDBED7FB3FE4D169 /* Pods_CVBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */; };
 		8428258E21AA679000A560A5 /* RecommendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428258D21AA679000A560A5 /* RecommendDetailViewController.swift */; };
 		8428259121AA6A6F00A560A5 /* CVNavDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */; };
+		8428259621AAC6FA00A560A5 /* UIViewController.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259521AAC6FA00A560A5 /* UIViewController.Extension.swift */; };
 		8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175721A0FA62002C8500 /* AppDelegate.swift */; };
 		8474175A21A0FA62002C8500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175921A0FA62002C8500 /* ViewController.swift */; };
 		8474175F21A0FA63002C8500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8474175E21A0FA63002C8500 /* Assets.xcassets */; };
@@ -22,11 +23,10 @@
 		8474177E21A1A733002C8500 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177D21A1A733002C8500 /* DemoViewController.swift */; };
 		8474178021A1A7E4002C8500 /* DemoConverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177F21A1A7E4002C8500 /* DemoConverable.swift */; };
 		8474178221A1A9FD002C8500 /* DeviceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474178121A1A9FD002C8500 /* DeviceDemo.swift */; };
-		84C91C1321A8E63400B9BBFB /* CVTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1221A8E63400B9BBFB /* CVTabBarViewController.swift */; };
+		84C91C1321A8E63400B9BBFB /* CVTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1221A8E63400B9BBFB /* CVTabBarController.swift */; };
 		84C91C1521A8E6D400B9BBFB /* CVTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */; };
 		84C91C1721A8E72900B9BBFB /* CVPaopao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1621A8E72900B9BBFB /* CVPaopao.swift */; };
 		84C91C1921A8FA6200B9BBFB /* CVTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1821A8FA6200B9BBFB /* CVTabBarItem.swift */; };
-		84C91C1B21A93CC100B9BBFB /* UIViewController.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1A21A93CC100B9BBFB /* UIViewController.Extension.swift */; };
 		84C91C1E21A96AA900B9BBFB /* DemoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1D21A96AA900B9BBFB /* DemoTabBarController.swift */; };
 		84C91C2621A96BC000B9BBFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C2521A96BC000B9BBFB /* HomeViewController.swift */; };
 		84C91C2821A96C0300B9BBFB /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C2721A96C0300B9BBFB /* RecommendViewController.swift */; };
@@ -41,6 +41,7 @@
 		64CE809C3976F1A601771800 /* Pods-CVBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.release.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.release.xcconfig"; sourceTree = "<group>"; };
 		8428258D21AA679000A560A5 /* RecommendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDetailViewController.swift; sourceTree = "<group>"; };
 		8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavDemoViewController.swift; sourceTree = "<group>"; };
+		8428259521AAC6FA00A560A5 /* UIViewController.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.Extension.swift; sourceTree = "<group>"; };
 		8474175421A0FA62002C8500 /* CVBaseKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVBaseKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8474175721A0FA62002C8500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8474175921A0FA62002C8500 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,11 +56,10 @@
 		8474177D21A1A733002C8500 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		8474177F21A1A7E4002C8500 /* DemoConverable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoConverable.swift; sourceTree = "<group>"; };
 		8474178121A1A9FD002C8500 /* DeviceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemo.swift; sourceTree = "<group>"; };
-		84C91C1221A8E63400B9BBFB /* CVTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBarViewController.swift; sourceTree = "<group>"; };
+		84C91C1221A8E63400B9BBFB /* CVTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBarController.swift; sourceTree = "<group>"; };
 		84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBar.swift; sourceTree = "<group>"; };
 		84C91C1621A8E72900B9BBFB /* CVPaopao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPaopao.swift; sourceTree = "<group>"; };
 		84C91C1821A8FA6200B9BBFB /* CVTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBarItem.swift; sourceTree = "<group>"; };
-		84C91C1A21A93CC100B9BBFB /* UIViewController.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.Extension.swift; sourceTree = "<group>"; };
 		84C91C1D21A96AA900B9BBFB /* DemoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTabBarController.swift; sourceTree = "<group>"; };
 		84C91C2521A96BC000B9BBFB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		84C91C2721A96C0300B9BBFB /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +96,18 @@
 				8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */,
 			);
 			path = NavBarDemo;
+			sourceTree = "<group>";
+		};
+		8428259421AAC65500A560A5 /* CVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				84C91C1221A8E63400B9BBFB /* CVTabBarController.swift */,
+				84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */,
+				84C91C1821A8FA6200B9BBFB /* CVTabBarItem.swift */,
+				84C91C1621A8E72900B9BBFB /* CVPaopao.swift */,
+				8428259521AAC6FA00A560A5 /* UIViewController.Extension.swift */,
+			);
+			path = CVTabBarController;
 			sourceTree = "<group>";
 		};
 		8474174B21A0FA62002C8500 = {
@@ -172,11 +184,7 @@
 		84C91C1121A8E60400B9BBFB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				84C91C1221A8E63400B9BBFB /* CVTabBarViewController.swift */,
-				84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */,
-				84C91C1821A8FA6200B9BBFB /* CVTabBarItem.swift */,
-				84C91C1621A8E72900B9BBFB /* CVPaopao.swift */,
-				84C91C1A21A93CC100B9BBFB /* UIViewController.Extension.swift */,
+				8428259421AAC65500A560A5 /* CVTabBarController */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -369,8 +377,7 @@
 			files = (
 				8474177821A19BBC002C8500 /* CVDevice.swift in Sources */,
 				84C91C2821A96C0300B9BBFB /* RecommendViewController.swift in Sources */,
-				84C91C1321A8E63400B9BBFB /* CVTabBarViewController.swift in Sources */,
-				84C91C1B21A93CC100B9BBFB /* UIViewController.Extension.swift in Sources */,
+				84C91C1321A8E63400B9BBFB /* CVTabBarController.swift in Sources */,
 				84C91C3021A96C3800B9BBFB /* FriendsViewController.swift in Sources */,
 				8474177721A19BBC002C8500 /* CVBatteryManager.swift in Sources */,
 				84C91C2C21A96C1D00B9BBFB /* ShoppingCartViewController.swift in Sources */,
@@ -386,6 +393,7 @@
 				8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */,
 				8474177C21A1A701002C8500 /* GlobalDemo.swift in Sources */,
 				8428258E21AA679000A560A5 /* RecommendDetailViewController.swift in Sources */,
+				8428259621AAC6FA00A560A5 /* UIViewController.Extension.swift in Sources */,
 				84C91C1721A8E72900B9BBFB /* CVPaopao.swift in Sources */,
 				8428259121AA6A6F00A560A5 /* CVNavDemoViewController.swift in Sources */,
 				84C91C2A21A96C0E00B9BBFB /* TestViewController.swift in Sources */,

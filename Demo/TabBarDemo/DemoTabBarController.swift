@@ -9,7 +9,7 @@
 import UIKit
 
 
-class DemoTabBarController: CVTabBarViewController {
+class DemoTabBarController: CVTabBarController {
 
     
     var n: Int = 0
@@ -50,8 +50,18 @@ extension DemoTabBarController {
         let nav_Friends = CVNavDemoViewController(rootViewController: friendsVC)
         
         self.viewControllers = [nav_Home, nav_Recommend, nav_Test, nav_ShoppingCart, nav_SmallVideo, nav_Friends]
-        self.showItems = [0, 1, 2, 3, 4, 5]
-        self.updateLayout()
+        self.showItems = [0, 1, 2, 3, 4, 5, 9]
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 49, height: 49))
+        view.backgroundColor = UIColor.red
+        
+        let cycle = UIView(frame: CGRect(x: 0, y: -20, width: 49, height: 49))
+        cycle.layer.cornerRadius = 49 / 2
+        cycle.layer.masksToBounds = true
+        cycle.backgroundColor = UIColor.red
+        view.addSubview(cycle)
+        
+        self.insert(view: view, at: 2)
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerRunning(timer:)), userInfo: nil, repeats: true)
         
