@@ -114,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				8474177921A1A404002C8500 /* Demo */,
-				8474175621A0FA62002C8500 /* Classes */,
+				8474175621A0FA62002C8500 /* CVBaseKit */,
 				8474175521A0FA62002C8500 /* Products */,
 				86BF1248E582EDC3460E2083 /* Pods */,
 				26BABCE408EE70AF59BE9C68 /* Frameworks */,
@@ -129,7 +129,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8474175621A0FA62002C8500 /* Classes */ = {
+		8474175621A0FA62002C8500 /* CVBaseKit */ = {
 			isa = PBXGroup;
 			children = (
 				84C91C1121A8E60400B9BBFB /* Components */,
@@ -138,7 +138,7 @@
 				8474175E21A0FA63002C8500 /* Assets.xcassets */,
 				8474176021A0FA63002C8500 /* LaunchScreen.storyboard */,
 			);
-			path = Classes;
+			path = CVBaseKit;
 			sourceTree = "<group>";
 		};
 		8474176E21A17F58002C8500 /* Global */ = {
