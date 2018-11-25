@@ -1,19 +1,20 @@
 //
-//  CVTabbarViewController.swift
+//  RecommendDetailViewController.swift
 //  CVBaseKit
 //
-//  Created by caven on 2018/11/24.
+//  Created by caven on 2018/11/25.
 //  Copyright © 2018 caven-twy. All rights reserved.
 //
 
 import UIKit
 
-class CVTabbarViewController: UITabBarController {
+class RecommendDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.white
+        
     }
     
 

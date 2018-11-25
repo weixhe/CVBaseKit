@@ -111,6 +111,10 @@ public func Factor(reference: CGFloat = 375, x: CGFloat) -> CGFloat {
  */
 
 
+// MARK: - UIImage
+public func UIImageName(_ imageName: String) -> UIImage {
+    return UIImage(named: imageName) ?? UIImage()
+}
 
 
 
