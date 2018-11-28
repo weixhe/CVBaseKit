@@ -50,7 +50,7 @@ extension DemoTabBarController {
         let nav_Friends = CVNavDemoViewController(rootViewController: friendsVC)
         
         self.viewControllers = [nav_Home, nav_Recommend, nav_Test, nav_ShoppingCart, nav_SmallVideo, nav_Friends]
-        self.showItems = [0, 1, 2, 3, 4, 5, 9]
+        self.showItems = [0, 1, 2, 3, 4, 5]
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 49, height: 49))
         view.backgroundColor = UIColor.red

@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		14804957CDBED7FB3FE4D169 /* Pods_CVBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */; };
+		840DD7F421AAD6D90018DFB8 /* CVNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F321AAD6D90018DFB8 /* CVNavigationController.swift */; };
+		840DD7F621AAD6E70018DFB8 /* CVNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F521AAD6E70018DFB8 /* CVNavigationBar.swift */; };
+		840DD7F821AAD6F50018DFB8 /* CVNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F721AAD6F50018DFB8 /* CVNavigationItem.swift */; };
+		840DD7FA21AAD70F0018DFB8 /* CVNavigation.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F921AAD70F0018DFB8 /* CVNavigation.Extension.swift */; };
 		8428258E21AA679000A560A5 /* RecommendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428258D21AA679000A560A5 /* RecommendDetailViewController.swift */; };
 		8428259121AA6A6F00A560A5 /* CVNavDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */; };
-		8428259621AAC6FA00A560A5 /* UIViewController.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259521AAC6FA00A560A5 /* UIViewController.Extension.swift */; };
+		8428259621AAC6FA00A560A5 /* CVTabBarController.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259521AAC6FA00A560A5 /* CVTabBarController.Extension.swift */; };
 		8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175721A0FA62002C8500 /* AppDelegate.swift */; };
 		8474175A21A0FA62002C8500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175921A0FA62002C8500 /* ViewController.swift */; };
 		8474175F21A0FA63002C8500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8474175E21A0FA63002C8500 /* Assets.xcassets */; };
@@ -39,9 +43,13 @@
 /* Begin PBXFileReference section */
 		188981AD263230FE84E73895 /* Pods-CVBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.debug.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 		64CE809C3976F1A601771800 /* Pods-CVBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.release.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		840DD7F321AAD6D90018DFB8 /* CVNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationController.swift; sourceTree = "<group>"; };
+		840DD7F521AAD6E70018DFB8 /* CVNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationBar.swift; sourceTree = "<group>"; };
+		840DD7F721AAD6F50018DFB8 /* CVNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationItem.swift; sourceTree = "<group>"; };
+		840DD7F921AAD70F0018DFB8 /* CVNavigation.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigation.Extension.swift; sourceTree = "<group>"; };
 		8428258D21AA679000A560A5 /* RecommendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDetailViewController.swift; sourceTree = "<group>"; };
 		8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavDemoViewController.swift; sourceTree = "<group>"; };
-		8428259521AAC6FA00A560A5 /* UIViewController.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.Extension.swift; sourceTree = "<group>"; };
+		8428259521AAC6FA00A560A5 /* CVTabBarController.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBarController.Extension.swift; sourceTree = "<group>"; };
 		8474175421A0FA62002C8500 /* CVBaseKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVBaseKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8474175721A0FA62002C8500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8474175921A0FA62002C8500 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +98,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		840DD7F221AAD6C10018DFB8 /* CVNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				840DD7F321AAD6D90018DFB8 /* CVNavigationController.swift */,
+				840DD7F521AAD6E70018DFB8 /* CVNavigationBar.swift */,
+				840DD7F721AAD6F50018DFB8 /* CVNavigationItem.swift */,
+				840DD7F921AAD70F0018DFB8 /* CVNavigation.Extension.swift */,
+			);
+			path = CVNavigationController;
+			sourceTree = "<group>";
+		};
 		8428258F21AA6A5100A560A5 /* NavBarDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +124,7 @@
 				84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */,
 				84C91C1821A8FA6200B9BBFB /* CVTabBarItem.swift */,
 				84C91C1621A8E72900B9BBFB /* CVPaopao.swift */,
-				8428259521AAC6FA00A560A5 /* UIViewController.Extension.swift */,
+				8428259521AAC6FA00A560A5 /* CVTabBarController.Extension.swift */,
 			);
 			path = CVTabBarController;
 			sourceTree = "<group>";
@@ -184,6 +203,7 @@
 		84C91C1121A8E60400B9BBFB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				840DD7F221AAD6C10018DFB8 /* CVNavigationController */,
 				8428259421AAC65500A560A5 /* CVTabBarController */,
 			);
 			path = Components;
@@ -376,24 +396,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				8474177821A19BBC002C8500 /* CVDevice.swift in Sources */,
+				840DD7FA21AAD70F0018DFB8 /* CVNavigation.Extension.swift in Sources */,
 				84C91C2821A96C0300B9BBFB /* RecommendViewController.swift in Sources */,
 				84C91C1321A8E63400B9BBFB /* CVTabBarController.swift in Sources */,
 				84C91C3021A96C3800B9BBFB /* FriendsViewController.swift in Sources */,
 				8474177721A19BBC002C8500 /* CVBatteryManager.swift in Sources */,
 				84C91C2C21A96C1D00B9BBFB /* ShoppingCartViewController.swift in Sources */,
+				840DD7F821AAD6F50018DFB8 /* CVNavigationItem.swift in Sources */,
 				8474176D21A17F47002C8500 /* CVConst.swift in Sources */,
 				8474175A21A0FA62002C8500 /* ViewController.swift in Sources */,
 				8474177E21A1A733002C8500 /* DemoViewController.swift in Sources */,
 				84C91C1921A8FA6200B9BBFB /* CVTabBarItem.swift in Sources */,
 				8474178021A1A7E4002C8500 /* DemoConverable.swift in Sources */,
 				84C91C1E21A96AA900B9BBFB /* DemoTabBarController.swift in Sources */,
+				840DD7F421AAD6D90018DFB8 /* CVNavigationController.swift in Sources */,
+				840DD7F621AAD6E70018DFB8 /* CVNavigationBar.swift in Sources */,
 				84C91C2E21A96C2800B9BBFB /* SmallVideoViewController.swift in Sources */,
 				84C91C1521A8E6D400B9BBFB /* CVTabBar.swift in Sources */,
 				84C91C2621A96BC000B9BBFB /* HomeViewController.swift in Sources */,
 				8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */,
 				8474177C21A1A701002C8500 /* GlobalDemo.swift in Sources */,
 				8428258E21AA679000A560A5 /* RecommendDetailViewController.swift in Sources */,
-				8428259621AAC6FA00A560A5 /* UIViewController.Extension.swift in Sources */,
+				8428259621AAC6FA00A560A5 /* CVTabBarController.Extension.swift in Sources */,
 				84C91C1721A8E72900B9BBFB /* CVPaopao.swift in Sources */,
 				8428259121AA6A6F00A560A5 /* CVNavDemoViewController.swift in Sources */,
 				84C91C2A21A96C0E00B9BBFB /* TestViewController.swift in Sources */,

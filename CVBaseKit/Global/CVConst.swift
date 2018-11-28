@@ -17,7 +17,8 @@ import UIKit
 public func CVLog<N>(_ message: N, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG // 若是Debug模式下，则打印
     let fileName = (file as NSString).lastPathComponent
-    print("\n文件名: \(fileName)\n方法: \(method)\n行号: \(line)\n打印信息: \(message)");
+    print("\n\n>>>")
+    print("文件名: \(fileName)\n方法: \(method)\n行号: \(line)\n打印信息: \(message)");
     #endif
 }
 

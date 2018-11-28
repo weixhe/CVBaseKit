@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CVNavDemoViewController: UINavigationController {
+class CVNavDemoViewController: CVNavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

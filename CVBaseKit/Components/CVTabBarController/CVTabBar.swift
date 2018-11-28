@@ -29,7 +29,9 @@ open class CVTabBar: UIView {
 
 // MARK: - Life Cycle
 extension CVTabBar {
-    
+    open override func layoutSubviews() {
+        backgroundImageView.frame = self.bounds
+    }
 }
 
 // MARK: - Public Methods

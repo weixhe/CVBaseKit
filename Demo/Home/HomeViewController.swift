@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        view.backgroundColor = UIColor.red
+        
         let label = UILabel(frame: CGRect(x: 0, y: 100, width: SCREEN_WIDTH, height: 60))
         label.text = "首页"
         label.textAlignment = .center
