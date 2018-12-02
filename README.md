@@ -9,6 +9,7 @@ pod 'CVBaseKit/CVDevice'    // 引入CVDevice
 pod 'CVBaseKit/Global/CVConst'    // 引入全局方法，声明，类似OC中的一些全局宏定义
 pod 'CVBaseKit/Components'        // 引入所有组件
 pod 'CVBaseKit/Components/CVTabBarController'     // 引入组件 - tabBar
+pod 'CVBaseKit/Components/CVNavigationController'     // 引入组件 - navBar
 ```
 ### 使用方法
 #### 1、CVDevice的使用方法
