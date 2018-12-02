@@ -18,9 +18,7 @@ class CVNavDemoViewController: CVNavigationController {
     
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if self.children.count == 1 {
-            viewController.hidesBottomBarWhenPushed = true //viewController是将要被push的控制器
-        }
+       
         super.pushViewController(viewController, animated: true)
     }
 

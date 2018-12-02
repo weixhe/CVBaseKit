@@ -12,10 +12,10 @@ private let DefaultLineColor = UIColor(red: 128/255.0, green: 128/255.0, blue: 1
 private let DefaultShadowColor = UIColor.black
 private let HeightBar: CGFloat = 44
 
-/// Status-Bar
-open class CVStatusBar: UIView {
-    
-}
+///// Status-Bar
+//open class CVStatusBar: UIView {
+//
+//}
 
 /// Nav-Bar
 open class CVNavigationBar: UIView {

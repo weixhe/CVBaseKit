@@ -174,7 +174,7 @@ fileprivate extension CVTabBarItem {
         updateLayout()
     }
     
-    /// 计算文字的需要的宽度
+    /// 计算文字的需要的高度
     func height(for text: String) -> CGFloat {
         
         let font = titleFont ?? DefaultTitleFont

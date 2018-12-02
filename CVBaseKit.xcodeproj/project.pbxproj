@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		14804957CDBED7FB3FE4D169 /* Pods_CVBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8037DABAA6DC69735D2E2D9 /* Pods_CVBaseKit.framework */; };
+		8407A17121B3D916006D0E71 /* CVBarSpaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A17021B3D916006D0E71 /* CVBarSpaceItem.swift */; };
+		8407A17321B3DAE1006D0E71 /* CVBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A17221B3DAE1006D0E71 /* CVBarItem.swift */; };
+		8407A17521B3FC0E006D0E71 /* CVNavigationAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A17421B3FC0E006D0E71 /* CVNavigationAppearance.swift */; };
 		840DD7F421AAD6D90018DFB8 /* CVNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F321AAD6D90018DFB8 /* CVNavigationController.swift */; };
 		840DD7F621AAD6E70018DFB8 /* CVNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F521AAD6E70018DFB8 /* CVNavigationBar.swift */; };
 		840DD7F821AAD6F50018DFB8 /* CVNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DD7F721AAD6F50018DFB8 /* CVNavigationItem.swift */; };
@@ -27,6 +30,9 @@
 		8474177E21A1A733002C8500 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177D21A1A733002C8500 /* DemoViewController.swift */; };
 		8474178021A1A7E4002C8500 /* DemoConverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474177F21A1A7E4002C8500 /* DemoConverable.swift */; };
 		8474178221A1A9FD002C8500 /* DeviceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474178121A1A9FD002C8500 /* DeviceDemo.swift */; };
+		84892FB521B2A12600C33085 /* CVBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84892FB421B2A12600C33085 /* CVBarButtonItem.swift */; };
+		84892FB721B2D61400C33085 /* CVNavigation.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84892FB621B2D61400C33085 /* CVNavigation.bundle */; };
+		84A6CA0921AED6C9006BF190 /* Home_2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6CA0821AED6C9006BF190 /* Home_2ViewController.swift */; };
 		84C91C1321A8E63400B9BBFB /* CVTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1221A8E63400B9BBFB /* CVTabBarController.swift */; };
 		84C91C1521A8E6D400B9BBFB /* CVTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */; };
 		84C91C1721A8E72900B9BBFB /* CVPaopao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C91C1621A8E72900B9BBFB /* CVPaopao.swift */; };
@@ -43,6 +49,9 @@
 /* Begin PBXFileReference section */
 		188981AD263230FE84E73895 /* Pods-CVBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.debug.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 		64CE809C3976F1A601771800 /* Pods-CVBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVBaseKit.release.xcconfig"; path = "Target Support Files/Pods-CVBaseKit/Pods-CVBaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		8407A17021B3D916006D0E71 /* CVBarSpaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVBarSpaceItem.swift; sourceTree = "<group>"; };
+		8407A17221B3DAE1006D0E71 /* CVBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVBarItem.swift; sourceTree = "<group>"; };
+		8407A17421B3FC0E006D0E71 /* CVNavigationAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationAppearance.swift; sourceTree = "<group>"; };
 		840DD7F321AAD6D90018DFB8 /* CVNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationController.swift; sourceTree = "<group>"; };
 		840DD7F521AAD6E70018DFB8 /* CVNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationBar.swift; sourceTree = "<group>"; };
 		840DD7F721AAD6F50018DFB8 /* CVNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavigationItem.swift; sourceTree = "<group>"; };
@@ -64,6 +73,9 @@
 		8474177D21A1A733002C8500 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		8474177F21A1A7E4002C8500 /* DemoConverable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoConverable.swift; sourceTree = "<group>"; };
 		8474178121A1A9FD002C8500 /* DeviceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemo.swift; sourceTree = "<group>"; };
+		84892FB421B2A12600C33085 /* CVBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVBarButtonItem.swift; sourceTree = "<group>"; };
+		84892FB621B2D61400C33085 /* CVNavigation.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CVNavigation.bundle; sourceTree = "<group>"; };
+		84A6CA0821AED6C9006BF190 /* Home_2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_2ViewController.swift; sourceTree = "<group>"; };
 		84C91C1221A8E63400B9BBFB /* CVTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBarController.swift; sourceTree = "<group>"; };
 		84C91C1421A8E6D400B9BBFB /* CVTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBar.swift; sourceTree = "<group>"; };
 		84C91C1621A8E72900B9BBFB /* CVPaopao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPaopao.swift; sourceTree = "<group>"; };
@@ -104,7 +116,12 @@
 				840DD7F321AAD6D90018DFB8 /* CVNavigationController.swift */,
 				840DD7F521AAD6E70018DFB8 /* CVNavigationBar.swift */,
 				840DD7F721AAD6F50018DFB8 /* CVNavigationItem.swift */,
+				8407A17221B3DAE1006D0E71 /* CVBarItem.swift */,
+				84892FB421B2A12600C33085 /* CVBarButtonItem.swift */,
+				8407A17021B3D916006D0E71 /* CVBarSpaceItem.swift */,
+				8407A17421B3FC0E006D0E71 /* CVNavigationAppearance.swift */,
 				840DD7F921AAD70F0018DFB8 /* CVNavigation.Extension.swift */,
+				84892FB621B2D61400C33085 /* CVNavigation.bundle */,
 			);
 			path = CVNavigationController;
 			sourceTree = "<group>";
@@ -221,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				84C91C2521A96BC000B9BBFB /* HomeViewController.swift */,
+				84A6CA0821AED6C9006BF190 /* Home_2ViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -335,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84892FB721B2D61400C33085 /* CVNavigation.bundle in Resources */,
 				8474176221A0FA63002C8500 /* LaunchScreen.storyboard in Resources */,
 				8474175F21A0FA63002C8500 /* Assets.xcassets in Resources */,
 				8474177621A19BBC002C8500 /* iPhoneModels.plist in Resources */,
@@ -405,18 +424,23 @@
 				840DD7F821AAD6F50018DFB8 /* CVNavigationItem.swift in Sources */,
 				8474176D21A17F47002C8500 /* CVConst.swift in Sources */,
 				8474175A21A0FA62002C8500 /* ViewController.swift in Sources */,
+				84892FB521B2A12600C33085 /* CVBarButtonItem.swift in Sources */,
 				8474177E21A1A733002C8500 /* DemoViewController.swift in Sources */,
 				84C91C1921A8FA6200B9BBFB /* CVTabBarItem.swift in Sources */,
 				8474178021A1A7E4002C8500 /* DemoConverable.swift in Sources */,
 				84C91C1E21A96AA900B9BBFB /* DemoTabBarController.swift in Sources */,
 				840DD7F421AAD6D90018DFB8 /* CVNavigationController.swift in Sources */,
+				8407A17521B3FC0E006D0E71 /* CVNavigationAppearance.swift in Sources */,
+				8407A17321B3DAE1006D0E71 /* CVBarItem.swift in Sources */,
 				840DD7F621AAD6E70018DFB8 /* CVNavigationBar.swift in Sources */,
 				84C91C2E21A96C2800B9BBFB /* SmallVideoViewController.swift in Sources */,
+				8407A17121B3D916006D0E71 /* CVBarSpaceItem.swift in Sources */,
 				84C91C1521A8E6D400B9BBFB /* CVTabBar.swift in Sources */,
 				84C91C2621A96BC000B9BBFB /* HomeViewController.swift in Sources */,
 				8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */,
 				8474177C21A1A701002C8500 /* GlobalDemo.swift in Sources */,
 				8428258E21AA679000A560A5 /* RecommendDetailViewController.swift in Sources */,
+				84A6CA0921AED6C9006BF190 /* Home_2ViewController.swift in Sources */,
 				8428259621AAC6FA00A560A5 /* CVTabBarController.Extension.swift in Sources */,
 				84C91C1721A8E72900B9BBFB /* CVPaopao.swift in Sources */,
 				8428259121AA6A6F00A560A5 /* CVNavDemoViewController.swift in Sources */,

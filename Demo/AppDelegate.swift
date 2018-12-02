@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = DemoTabBarController()
         window?.makeKeyAndVisible()
         
+        CVNavigationAppearance.share.itemTextColor = UIColor.red
+        CVNavigationAppearance.share.itemFont = UIFont.systemFont(ofSize: 15)
+
+        CVNavigationAppearance.share.titleColor = UIColor.orange
+        CVNavigationAppearance.share.titleFont = UIFont.systemFont(ofSize: 20)
         
         return true
     }

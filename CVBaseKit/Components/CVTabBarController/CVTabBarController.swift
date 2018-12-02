@@ -33,6 +33,19 @@ open class CVTabBarController: UITabBarController {
 
 // MARK: - Life Cycle
 extension CVTabBarController {
+    
+    override open var shouldAutorotate: Bool {
+        return selectedViewController?.shouldAutorotate ?? false
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return selectedViewController?.supportedInterfaceOrientations ?? .portrait
+    }
+    
+    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return selectedViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +59,7 @@ extension CVTabBarController {
     }
     
     open override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
         viewWillLayoutSubviews()
     }
 }
