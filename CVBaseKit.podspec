@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   #  组件Device
   s.subspec 'CVDevice' do |ss|
-  	ss.source_files = "CVBaseKit/CVDevice/*.{swift,plist}"    # 需要托管的源代码路径
+  	ss.source_files = "CVBaseKit/CVDevice/*.{swift, plist}"    # 需要托管的源代码路径
   	ss.dependency "KeychainAccess"    #所依赖的第三方库，没有就不用写
   	ss.framework = "SystemConfiguration"
   end
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
       sss.source_files = "CVBaseKit/Components/CVTabBarController/*.{swift}"   # 需要托管的源代码路径
     end
     ss.subspec 'CVNavigationController' do |sss|
-      sss.source_files = "CVBaseKit/Components/CVNavigationController/*.{swift,bundle}"   # 需要托管的源代码路径
+      sss.source_files = "CVBaseKit/Components/CVNavigationController/*.{swift}"   # 需要托管的源代码路径
     end
   end
 

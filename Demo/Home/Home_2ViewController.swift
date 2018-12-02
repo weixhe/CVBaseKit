@@ -14,8 +14,11 @@ class Home_2ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
+        // 显示单个
         cv_navigationItem?.leftItem = CVBarButtonItem(title: "<-", image: nil, target: self, action: #selector(back))
+        cv_navigationItem?.rightItem = CVBarButtonItem(title: "share", target: self, action: #selector(share))
         
+        // 显示多个
         let space1 = CVBarSpaceItem(space: 10)
         let space2 = CVBarSpaceItem(space: -10)
 
@@ -23,7 +26,6 @@ class Home_2ViewController: UIViewController {
         let item2 = CVBarButtonItem(title: "刷新", target: nil, action: nil)
         cv_navigationItem?.leftItems = [space1, item1, space2, item2]
         
-        cv_navigationItem?.rightItem = CVBarButtonItem(title: "share", target: self, action: #selector(share))
         
         let item3 = CVBarButtonItem(title: "关闭", target: self, action: #selector(share))
         item3.textColor = UIColor.red
@@ -31,7 +33,14 @@ class Home_2ViewController: UIViewController {
         let item4 = CVBarButtonItem(title: "刷新", target: nil, action: nil)
         cv_navigationItem?.rightItems = [space1, item3, space2, item4]
         
-        cv_navigationItem?.title = "首页-2"
+        // 显示title
+        self.title = "首页-2"
+//  或   cv_navigationItem?.title = "首页-2"
+        
+        // 设置titleView
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
+        titleView.backgroundColor = UIColor.red
+        cv_navigationItem?.titleView = titleView
     }
     
 

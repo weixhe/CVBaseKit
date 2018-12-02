@@ -119,11 +119,8 @@ public func UIImageName(_ imageName: String) -> UIImage {
 
 
 
-// MARK: - 设备信息，版本号
-/// 系统版本号
-public let SysVersion = UIDevice.current.systemVersion
-/// 系统名称("iOS", "tvOS", "watchOS", "macOS")
-public let SysName = UIDevice.current.systemName
+// MARK: - App信息
+
 
 /// 程序名称
 public let AppName = Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String ?? ""

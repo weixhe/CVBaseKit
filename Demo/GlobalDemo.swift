@@ -18,8 +18,6 @@ class GlobalDemo: NSObject, DemoConverable {
                 屏幕安全尺寸："(\(SCREEN_WIDTH_SAFE), \(SCREEN_HEIGHT_SAFE))"
                 屏幕安全区域："(\(SafeAreaInsets.top), \(SafeAreaInsets.left),\(SafeAreaInsets.bottom),\(SafeAreaInsets.right))"
                 Nav Tab 高度：(\(Nav_Height), \(Tab_Height))
-                系统版本：\(SysVersion)
-                系统名字：\(SysName)
                 App名字：\(AppName)
                 主程序版本号：\(AppVersion)
                 build版本：\(AppBuildVersion)

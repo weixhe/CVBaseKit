@@ -70,7 +70,7 @@ extension CVTabBarController {}
 // MARK: - Public Methods
 extension CVTabBarController {
     
-    /// 更新item上的paopao数字, （中心的）偏移量，是否i隐藏
+    /// 更新item上的paopao数字, （中心的）偏移量，是否隐藏； 当text==nil时，显示圆点
     func updatePaopao(text: String?, offset: CGSize = CGSize(width: 15, height: -10), at index: Int, isHidden: Bool = false) {
         guard tabbarItems.count > 0 else { return }
         guard showItems.count > 0 else { return }

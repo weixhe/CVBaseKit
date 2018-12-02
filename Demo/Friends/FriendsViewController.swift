@@ -17,6 +17,8 @@ class FriendsViewController: UIViewController {
         label.text = "朋友"
         label.textAlignment = .center
         view.addSubview(label)
+        
+        
     }
     
 
