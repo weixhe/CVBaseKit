@@ -18,7 +18,7 @@ open class CVTabBarController: UITabBarController {
     open lazy var cv_tabBar: CVTabBar = { return _cv_tabbar() }()
     
     private var tabbarItems: [CVTabBarItem] = []  // tabBar上所有的item
-    open var showItems: [Int] = []    // 控制在tabbar上面显示的item
+    open var showItems: [Int] = []     // 控制在tabbar上面显示的item
     
     open override var viewControllers: [UIViewController]? { set { _setViewControllers(newValue) } get { return _viewControllers() } }
     open override var selectedIndex: Int { didSet { _selectedIndexDidSet() } }
@@ -28,6 +28,7 @@ open class CVTabBarController: UITabBarController {
     // 可以设置特殊的view
     private var specialView: UIView?
     private var specialIndex: Int?
+    private var hasInitialized: Bool = false    // 记录是否已经初始化完成
     
 }
 
@@ -52,6 +53,7 @@ extension CVTabBarController {
         tabBar.addSubview(cv_tabBar)
     }
     
+    
     open override func viewWillLayoutSubviews() {
         
         updateSubviews()
@@ -68,13 +70,29 @@ extension CVTabBarController {
 extension CVTabBarController {}
 
 // MARK: - Public Methods
+fileprivate var n = 0
 extension CVTabBarController {
     
     /// 更新item上的paopao数字, （中心的）偏移量，是否隐藏； 当text==nil时，显示圆点
     public func updatePaopao(text: String?, offset: CGSize = CGSize(width: 15, height: -10), at index: Int, isHidden: Bool = false) {
+        
         guard tabbarItems.count > 0 else { return }
         guard showItems.count > 0 else { return }
-
+        
+        // 判断item是否已经初始化，并设定了frame了
+        if hasInitialized == false {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) { [weak self] in
+                n += 1
+                if n > 10 {
+                    print("尝试了10次显示Paopao，但是item位置一直未确定，所以Paopao也不知道该显示到什么位置")
+                    return
+                }
+                guard let `self` = self else { return }
+                self.updatePaopao(text: text, offset: offset, at: index, isHidden: isHidden)
+            }
+            return
+        }
+        n = 0
         let shown = showItems[index]
         let item: CVTabBarItem = tabbarItems[shown]
         item.updatePaopao(text: text, offset: offset, isHidden: isHidden)
@@ -187,6 +205,9 @@ fileprivate extension CVTabBarController {
                 item.frame = CGRect(x: width * CGFloat(i), y: 0, width: width, height: heightItem)
             }
         }
+        
+        // 已经计算好了item的frame
+        hasInitialized = true
     }
 }
 
