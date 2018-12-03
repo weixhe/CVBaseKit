@@ -75,9 +75,9 @@ extension CVTabBarController {
     
     /// 更新item上的paopao数字, （中心的）偏移量，是否隐藏； 当text==nil时，显示圆点
     public func updatePaopao(text: String?, offset: CGSize = CGSize(width: 15, height: -10), at index: Int, isHidden: Bool = false) {
-        
-        guard tabbarItems.count > 0 else { return }
-        guard showItems.count > 0 else { return }
+        guard index >= 0 else { return }
+        guard tabbarItems.count > index else { return }
+        guard showItems.count > index else { return }
         
         // 判断item是否已经初始化，并设定了frame了
         if hasInitialized == false {
@@ -93,6 +93,7 @@ extension CVTabBarController {
             return
         }
         n = 0
+
         let shown = showItems[index]
         let item: CVTabBarItem = tabbarItems[shown]
         item.updatePaopao(text: text, offset: offset, isHidden: isHidden)

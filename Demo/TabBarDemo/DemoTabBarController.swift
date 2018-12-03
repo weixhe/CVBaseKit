@@ -50,7 +50,7 @@ extension DemoTabBarController {
         let nav_Friends = CVNavDemoViewController(rootViewController: friendsVC)
         
         self.viewControllers = [nav_Home, nav_Recommend, nav_Test, nav_ShoppingCart, nav_SmallVideo, nav_Friends]
-        self.showItems = [0, 1, 2, 3]
+        self.showItems = [0]
         
 //        let view = UIView(frame: CGRect(x: 0, y: 0, width: 49, height: 49))
 //        view.backgroundColor = UIColor.red
@@ -79,11 +79,11 @@ extension DemoTabBarController {
             self.updatePaopao(text: "99+", at: 0)
         }
         
-        if n < 50 {
-            self.updatePaopao(text: nil, offset: CGSize(width: 15, height: -15), at: 1, isHidden: false)
-        } else {
-            self.updatePaopao(text: nil, offset: CGSize(width: 15, height: -15), at: 1, isHidden: true)
-        }
+//        if n < 50 {
+//            self.updatePaopao(text: nil, offset: CGSize(width: 15, height: -15), at: 1, isHidden: false)
+//        } else {
+//            self.updatePaopao(text: nil, offset: CGSize(width: 15, height: -15), at: 1, isHidden: true)
+//        }
         
         if n == 32 {
 
