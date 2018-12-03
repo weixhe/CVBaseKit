@@ -60,7 +60,7 @@ extension CVTabBarItem {
 
 // MARK: - Public Methods
 extension CVTabBarItem {
-    convenience init(image: UIImage?, selectedImage: UIImage?, title: String, selectedTitle: String) {
+    convenience public  init(image: UIImage?, selectedImage: UIImage?, title: String, selectedTitle: String) {
         self.init()
         
         setImage(image, state: .normal)
@@ -72,7 +72,7 @@ extension CVTabBarItem {
         self.updateLayout()
     }
     
-    func setImage(_ image: UIImage?, state: UIControl.State) {
+    public func setImage(_ image: UIImage?, state: UIControl.State) {
         if state == .normal {
             self.image = image
         } else {
@@ -81,7 +81,7 @@ extension CVTabBarItem {
     }
     
     /// 设置 title，font， color
-    func setTitle(_ title: String, font: UIFont = DefaultTitleFont, color: UIColor, state: UIControl.State) {
+    public func setTitle(_ title: String, font: UIFont = UIFont.systemFont(ofSize: 11), color: UIColor, state: UIControl.State) {
         if state == .normal {
             self.title = title
             setTitle(font: font, color: color, state: .normal)
@@ -92,7 +92,7 @@ extension CVTabBarItem {
     }
     
     /// 设置 font， color
-    func setTitle(font: UIFont = DefaultTitleFont, color: UIColor, state: UIControl.State) {
+    public func setTitle(font: UIFont = UIFont.systemFont(ofSize: 11), color: UIColor, state: UIControl.State) {
         if state == .normal {
             self.titleColor = color
             self.titleFont = font
@@ -102,7 +102,7 @@ extension CVTabBarItem {
         }
     }
     
-    func updatePaopao(text: String?, offset: CGSize = CGSize(width: 15, height: -10), isHidden: Bool = false) {
+    public func updatePaopao(text: String?, offset: CGSize = CGSize(width: 15, height: -10), isHidden: Bool = false) {
         paopao.content = text
         
         if let tx = text, tx.count > 0 {
