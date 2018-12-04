@@ -14,10 +14,6 @@ class DemoTabBarController: CVTabBarController {
     
     var n: Int = 0
     
-
-   
-    
-
 }
 
 extension DemoTabBarController {
@@ -31,6 +27,7 @@ extension DemoTabBarController {
         
         let recommendVC = RecommendViewController()
         recommendVC.cv_tabBarItem = CVTabBarItem(image: UIImageName("Tabbar_Recommend_N"), selectedImage: UIImageName("Tabbar_Recommend_H"), title: "收藏", selectedTitle: "收藏")
+
         let nav_Recommend = CVNavDemoViewController(rootViewController: recommendVC)
         
         let testVC = TestViewController()
@@ -50,7 +47,7 @@ extension DemoTabBarController {
         let nav_Friends = CVNavDemoViewController(rootViewController: friendsVC)
         
         self.viewControllers = [nav_Home, nav_Recommend, nav_Test, nav_ShoppingCart, nav_SmallVideo, nav_Friends]
-        self.showItems = [0]
+        self.showItems = [0, 1, 2, 3]
         
 //        let view = UIView(frame: CGRect(x: 0, y: 0, width: 49, height: 49))
 //        view.backgroundColor = UIColor.red

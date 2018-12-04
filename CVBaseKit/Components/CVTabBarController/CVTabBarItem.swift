@@ -12,6 +12,7 @@ private let DefaultTitleColor: UIColor = UIColor.black
 private let DefaultSelectedTitleColor: UIColor = UIColor.blue
 private let DefaultTitleFont: UIFont = UIFont.systemFont(ofSize: 11)
 private let DefaultPaopaoHeight: CGFloat = 15
+private let DefaultHeight: CGFloat = 49
 
 public protocol CVTabBarItemDelegate: class {
     func tabBarItem(_ tabBarItem: CVTabBarItem, didSelected atIndex: Int)
@@ -40,6 +41,9 @@ open class CVTabBarItem: UIView {
     private lazy var paopao: CVPaopao = { return _paopao() }()
     private lazy var button: UIButton = { return _button() }()
     
+    private var paopaoOffset: CGSize = CGSize.zero
+    private var paopaoIsHidden: Bool = true
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -55,12 +59,13 @@ open class CVTabBarItem: UIView {
 extension CVTabBarItem {
     open override func layoutSubviews() {
         updateLayout()
+        updatePaopaoFrame()
     }
 }
 
 // MARK: - Public Methods
 extension CVTabBarItem {
-    convenience public  init(image: UIImage?, selectedImage: UIImage?, title: String, selectedTitle: String) {
+    convenience public  init(image: UIImage?, selectedImage: UIImage?, title: String?, selectedTitle: String?) {
         self.init()
         
         setImage(image, state: .normal)
@@ -69,7 +74,7 @@ extension CVTabBarItem {
         setTitle(title, color: DefaultTitleColor, state: .normal)
         setTitle(selectedTitle, color: DefaultSelectedTitleColor, state: .selected)
         
-        self.updateLayout()
+        updateLayout()
     }
     
     public func setImage(_ image: UIImage?, state: UIControl.State) {
@@ -81,7 +86,7 @@ extension CVTabBarItem {
     }
     
     /// 设置 title，font， color
-    public func setTitle(_ title: String, font: UIFont = UIFont.systemFont(ofSize: 11), color: UIColor, state: UIControl.State) {
+    public func setTitle(_ title: String?, font: UIFont = UIFont.systemFont(ofSize: 11), color: UIColor, state: UIControl.State) {
         if state == .normal {
             self.title = title
             setTitle(font: font, color: color, state: .normal)
@@ -104,19 +109,9 @@ extension CVTabBarItem {
     
     public func updatePaopao(text: String?, offset: CGSize = CGSize(width: 15, height: -10), isHidden: Bool = false) {
         paopao.content = text
-        
-        if let tx = text, tx.count > 0 {
-            paopao.frame = CGRect(x: 0, y: 0, width: max(paopao.calWidth, DefaultPaopaoHeight), height: DefaultPaopaoHeight)
-            paopao.center = CGPoint(x: center.x + offset.width, y: center.y + offset.height)
-        } else {
-            paopao.frame = CGRect(x: 0, y: 0, width: max(paopao.calWidth, DefaultPaopaoHeight / 2), height: DefaultPaopaoHeight / 2)
-            paopao.center = CGPoint(x: center.x + offset.width, y: center.y + offset.height)
-        }
-        
-        paopao.layer.cornerRadius = paopao.frame.height / 2
-        paopao.layer.masksToBounds = true
-        
-        paopao.isHidden = isHidden
+        paopaoOffset = offset
+        paopaoIsHidden = isHidden
+        updatePaopaoFrame()
     }
 }
 
@@ -139,22 +134,42 @@ fileprivate extension CVTabBarItem {
     
     func updateLayout() {
         
-        var imageH: CGFloat = 0
-        if image != nil && title != nil {
-            imageH = frame.height * 0.5
-            imageView.frame = CGRect(x: 0, y: 5, width: frame.width, height: imageH)
-            titleLabel.frame = CGRect(x: 0, y: imageH + 8, width: frame.width, height: height(for: title ?? ""))
-        } else if image != nil {
-            imageH = frame.height
-            imageView.frame = CGRect(x: 0, y: 5, width: frame.width, height: imageH)
-            titleLabel.frame = CGRect(x: 0, y: imageH + 8, width: frame.width, height: 0)
+        let space: CGFloat = 5  // 定义image 和 title 之间的间距
+
+        let titleSize: CGSize = size(for: title)
+        let imageSize: CGSize = size(for: image)
+
+        if image != nil && title != nil {       // 文字 + 图片
+            imageView.frame = CGRect(origin: CGPoint.zero, size: imageSize)
+            titleLabel.frame = CGRect(origin: CGPoint.zero, size: titleSize)
+            imageView.center = CGPoint(x: frame.width / 2, y: (frame.height - space - titleSize.height) / 2)
+            titleLabel.center = CGPoint(x: frame.width / 2, y: (frame.height + space + imageSize.height) / 2)
+        } else if image != nil {        // 仅图片
+            imageView.frame = CGRect(origin: CGPoint.zero, size: imageSize)
+            titleLabel.frame = CGRect(origin: CGPoint.zero, size: titleSize)
+            imageView.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        } else {        // 仅文字
+            imageView.frame = CGRect(origin: CGPoint.zero, size: imageSize)
+            titleLabel.frame = CGRect(origin: CGPoint.zero, size: titleSize)
+            titleLabel.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        }
+
+        button.frame = self.bounds
+    }
+    
+    /// 更新Paopao的位置
+    func updatePaopaoFrame() {
+        if let tx = paopao.content, tx.count > 0 {
+            paopao.frame = CGRect(x: 0, y: 0, width: max(paopao.calWidth, DefaultPaopaoHeight), height: DefaultPaopaoHeight)
+            paopao.center = CGPoint(x: center.x + paopaoOffset.width, y: center.y + paopaoOffset.height)
         } else {
-            imageH = 0
-            imageView.frame = CGRect(x: 0, y: 5, width: frame.width, height: imageH)
-            titleLabel.frame = CGRect(x: 0, y: imageH, width: frame.width, height: frame.height - 10)
+            paopao.frame = CGRect(x: 0, y: 0, width: max(paopao.calWidth, DefaultPaopaoHeight / 2), height: DefaultPaopaoHeight / 2)
+            paopao.center = CGPoint(x: center.x + paopaoOffset.width, y: center.y + paopaoOffset.height)
         }
         
-        button.frame = bounds
+        paopao.layer.cornerRadius = paopao.frame.height / 2
+        paopao.layer.masksToBounds = true
+        paopao.isHidden = paopaoIsHidden
     }
     
     /// 更新状态，会改变item上的image和title
@@ -174,13 +189,27 @@ fileprivate extension CVTabBarItem {
         updateLayout()
     }
     
-    /// 计算文字的需要的高度
-    func height(for text: String) -> CGFloat {
-        
-        let font = titleFont ?? DefaultTitleFont
-        
-        let textRect = (text as NSString).boundingRect(with: CGSize(width: frame.width, height: 9999), options: .usesFontLeading, attributes: [.font: font], context: nil)
-        return textRect.size.height
+    
+    /// 计算文字的需要的size
+    func size(for text: String?) -> CGSize {
+        guard text != nil else { return CGSize.zero }
+        let textRect = (text! as NSString).boundingRect(with: CGSize(width: 9999, height: 9999), options: .usesFontLeading, attributes: [.font: titleLabel.font], context: nil)
+        return textRect.size
+    }
+    
+    /// 计算图片的size
+    func size(for image: UIImage?) -> CGSize {
+        var size: CGSize = CGSize.zero
+        if let im = image {
+            
+            if im.size.height > DefaultHeight {
+                let scale = DefaultHeight / im.size.height
+                size = CGSize(width: im.size.width * scale, height: DefaultHeight)
+            } else {
+                size = im.size
+            }
+        }
+        return size
     }
     
 }
