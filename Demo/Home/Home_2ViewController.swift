@@ -15,16 +15,16 @@ class Home_2ViewController: UIViewController {
         view.backgroundColor = UIColor.white
         
         // 显示单个
-        cv_navigationItem?.leftItem = CVBarButtonItem(title: "<-", image: nil, target: self, action: #selector(back))
+//        cv_navigationItem?.leftItem = CVBarButtonItem(title: "<-", image: nil, target: self, action: #selector(back))
         cv_navigationItem?.rightItem = CVBarButtonItem(title: "share", target: self, action: #selector(share))
         
         // 显示多个
         let space1 = CVBarSpaceItem(space: 10)
         let space2 = CVBarSpaceItem(space: -10)
-
-        let item1 = CVBarButtonItem(title: "关闭", target: nil, action: nil)
-        let item2 = CVBarButtonItem(title: "刷新", target: nil, action: nil)
-        cv_navigationItem?.leftItems = [space1, item1, space2, item2]
+//
+//        let item1 = CVBarButtonItem(title: "关闭", target: nil, action: nil)
+//        let item2 = CVBarButtonItem(title: "刷新", target: nil, action: nil)
+//        cv_navigationItem?.leftItems = [space1, item1, space2, item2]
         
         
         let item3 = CVBarButtonItem(title: "关闭", target: self, action: #selector(share))

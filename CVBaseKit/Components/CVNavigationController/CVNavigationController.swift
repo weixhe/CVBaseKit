@@ -80,7 +80,7 @@ extension CVNavigationController {
         super.pushViewController(viewController, animated: true)
         if viewControllers.count > 1 {
 
-            if let item = viewController.cv_navigationItem, item.leftItem != nil {
+            if let item = viewController.cv_navigationItem, item.leftItem == nil, item.leftItems == nil {
 
                 var image: UIImage?
                 if let bundlePath = Bundle.main.path(forResource: "CVNavigation", ofType: "bundle") {
