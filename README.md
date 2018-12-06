@@ -154,8 +154,9 @@ pod 'CVBaseKit/Components/CVSearchViewController'     // 引入组件 - nav-sear
   
   #### 5. CVSearchViewController
   
-  使用本类需要用到CVNavigationBar，并且用到了继承
-  ```
+  使用本类需要用到CVNavigationBar，并且用到了继承，可以设置左右两侧的自定义视图，比如【扫一扫】等，通过属性`showCancel` 控制取消按钮的隐藏
+  子类中需要自己设定数据源和搜索结果数据源，以及tableView和resultTableView的显示等
+  ``` 
   class HomeSearchViewController: CVSearchViewController {
 
     override func viewDidLoad() {
