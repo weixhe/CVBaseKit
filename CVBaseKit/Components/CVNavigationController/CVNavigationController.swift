@@ -12,7 +12,7 @@ open class CVNavigationController: UINavigationController {
 
 }
 
-// MARK: - Lift Cycle
+// MARK: - Public - Override
 extension CVNavigationController {
     override open var shouldAutorotate: Bool {
         return true
@@ -35,8 +35,7 @@ extension CVNavigationController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.isHidden = true
-        
-        
+        self.delegate = self
     }
 }
 
@@ -70,6 +69,7 @@ extension CVNavigationController {
             viewController.hidesBottomBarWhenPushed = true
         }
         
+        super.pushViewController(viewController, animated: true)
         if viewController.cv_navigationBar == nil  {
             let bar = _cv_navgationBar()
             let item = _cv_navgationItem(bind: bar)
@@ -77,23 +77,9 @@ extension CVNavigationController {
             viewController.cv_navigationBar = bar
         }
         
-        super.pushViewController(viewController, animated: true)
-        if viewControllers.count > 1 {
 
-            if let item = viewController.cv_navigationItem, item.leftItem == nil, item.leftItems == nil {
-
-                var image: UIImage?
-                if let bundlePath = Bundle.main.path(forResource: "CVNavigation", ofType: "bundle") {
-                    
-                    let suffix = UIScreen.main.scale == 2 ? "@2x" : UIScreen.main.scale == 3 ? "@3x" : "@1x"
-                    
-                    if let imagePath = Bundle(path: bundlePath)?.path(forResource: "default_back\(suffix)", ofType: "png") {
-                        image = UIImage(contentsOfFile: imagePath)
-                    }
-                }
-                
-                item.backButtonItem = CVBarButtonItem(title: "返回", image: image, target: viewController, action: #selector(UIViewController.backToPrevious))
-            }
+        if let item = viewController.cv_navigationItem {
+            item.backButtonItemHidden = viewControllers.count > 1 ? false : true
         }
         viewWillLayoutSubviews()
     }
@@ -109,12 +95,18 @@ extension CVNavigationController {
     
 }
 
-// MARK: - Private Methods
-fileprivate extension CVNavigationController {
+//  MARK: - Public - UINavigationControllerDelegate
+extension CVNavigationController: UINavigationControllerDelegate {
     
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        // 在即将显示的时候添加navBar
+        if let bar = viewController.cv_navigationBar {
+            viewController.view.addSubview(bar)
+        }
+    }    
 }
 
-// MARK: - Getter Setter
+// MARK: - Private - Getter
 fileprivate extension CVNavigationController {
     func _cv_navgationBar() -> CVNavigationBar {
         let nb = CVNavigationBar(frame: CGRect.zero)

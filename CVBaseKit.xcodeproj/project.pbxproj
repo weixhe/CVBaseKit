@@ -18,6 +18,8 @@
 		8428258E21AA679000A560A5 /* RecommendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428258D21AA679000A560A5 /* RecommendDetailViewController.swift */; };
 		8428259121AA6A6F00A560A5 /* CVNavDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */; };
 		8428259621AAC6FA00A560A5 /* CVTabBarController.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428259521AAC6FA00A560A5 /* CVTabBarController.Extension.swift */; };
+		8463848E21B804AF00A94519 /* CVSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463848D21B804AF00A94519 /* CVSearchViewController.swift */; };
+		8463849121B80F7D00A94519 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463849021B80F7D00A94519 /* HomeSearchViewController.swift */; };
 		8474175821A0FA62002C8500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175721A0FA62002C8500 /* AppDelegate.swift */; };
 		8474175A21A0FA62002C8500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474175921A0FA62002C8500 /* ViewController.swift */; };
 		8474175F21A0FA63002C8500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8474175E21A0FA63002C8500 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		8428258D21AA679000A560A5 /* RecommendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDetailViewController.swift; sourceTree = "<group>"; };
 		8428259021AA6A6F00A560A5 /* CVNavDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVNavDemoViewController.swift; sourceTree = "<group>"; };
 		8428259521AAC6FA00A560A5 /* CVTabBarController.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVTabBarController.Extension.swift; sourceTree = "<group>"; };
+		8463848D21B804AF00A94519 /* CVSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVSearchViewController.swift; sourceTree = "<group>"; };
+		8463849021B80F7D00A94519 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		8474175421A0FA62002C8500 /* CVBaseKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVBaseKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8474175721A0FA62002C8500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8474175921A0FA62002C8500 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,14 @@
 			path = CVTabBarController;
 			sourceTree = "<group>";
 		};
+		8463848F21B804BF00A94519 /* CVSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8463848D21B804AF00A94519 /* CVSearchViewController.swift */,
+			);
+			path = CVSearchViewController;
+			sourceTree = "<group>";
+		};
 		8474174B21A0FA62002C8500 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +232,7 @@
 		84C91C1121A8E60400B9BBFB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8463848F21B804BF00A94519 /* CVSearchViewController */,
 				840DD7F221AAD6C10018DFB8 /* CVNavigationController */,
 				8428259421AAC65500A560A5 /* CVTabBarController */,
 			);
@@ -239,6 +252,7 @@
 			children = (
 				84C91C2521A96BC000B9BBFB /* HomeViewController.swift */,
 				84A6CA0821AED6C9006BF190 /* Home_2ViewController.swift */,
+				8463849021B80F7D00A94519 /* HomeSearchViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -422,10 +436,12 @@
 				8474177721A19BBC002C8500 /* CVBatteryManager.swift in Sources */,
 				84C91C2C21A96C1D00B9BBFB /* ShoppingCartViewController.swift in Sources */,
 				840DD7F821AAD6F50018DFB8 /* CVNavigationItem.swift in Sources */,
+				8463848E21B804AF00A94519 /* CVSearchViewController.swift in Sources */,
 				8474176D21A17F47002C8500 /* CVConst.swift in Sources */,
 				8474175A21A0FA62002C8500 /* ViewController.swift in Sources */,
 				84892FB521B2A12600C33085 /* CVBarButtonItem.swift in Sources */,
 				8474177E21A1A733002C8500 /* DemoViewController.swift in Sources */,
+				8463849121B80F7D00A94519 /* HomeSearchViewController.swift in Sources */,
 				84C91C1921A8FA6200B9BBFB /* CVTabBarItem.swift in Sources */,
 				8474178021A1A7E4002C8500 /* DemoConverable.swift in Sources */,
 				84C91C1E21A96AA900B9BBFB /* DemoTabBarController.swift in Sources */,

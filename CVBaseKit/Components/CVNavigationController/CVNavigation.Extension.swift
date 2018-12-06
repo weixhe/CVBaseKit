@@ -23,9 +23,6 @@ extension UIViewController {
             return objc_getAssociatedObject(self, &ExtensionKey.navigationBar) as? CVNavigationBar
         }
         set {
-            if newValue != nil {
-                view.addSubview(newValue!)
-            }
             objc_setAssociatedObject(self, &ExtensionKey.navigationBar, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }

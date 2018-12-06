@@ -14,7 +14,9 @@ private let DefaultBarHeight: CGFloat = 44
 
 open class CVNavigationItem: NSObject {
 
-    public var backButtonItem: CVBarButtonItem? { didSet { _backButtonItemDidSet() } }
+    public private(set) var backButtonItem: CVBarButtonItem? { didSet { _backButtonItemDidSet() } }
+    public var backButtonItemHidden: Bool = false { didSet { _backButtonItemHiddenDidSet() } }
+    
     public var leftItem: CVBarButtonItem? { willSet { _leftItemWillSet() } didSet { _leftItemDidSet() } }
     public var rightItem: CVBarButtonItem? { willSet { _rightItemWillSet() } didSet { _rightItemDidSet() } }
     
@@ -35,7 +37,7 @@ open class CVNavigationItem: NSObject {
     }
 }
 
-// MARK: - Notification
+// MARK: - Public - Notification
 extension CVNavigationItem {
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let obj = object as? UIView, obj == contentView.superview! {
@@ -55,7 +57,7 @@ extension CVNavigationItem {
     }
 }
 
-// MARK: - Public Methods
+// MARK: - Public - Other Methods
 extension CVNavigationItem {
     public func bind(to navigatonBar: CVNavigationBar?) {
         if let bar = navigatonBar {
@@ -73,7 +75,7 @@ extension CVNavigationItem {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Private - Other Methods
 fileprivate extension CVNavigationItem {
     func addNotify() {
         contentView.superview?.addObserver(self, forKeyPath: "frame", options: [.new], context: nil)
@@ -153,9 +155,63 @@ fileprivate extension CVNavigationItem {
     }
 }
 
-// MARK: - Getter Setter
+// MARK: - Private - Getter
 fileprivate extension CVNavigationItem {
     
+    func _titleLabel() -> UILabel {
+        let lb = UILabel(frame: CGRect.zero)
+        lb.textColor = textColor ?? appearance.titleColor
+        lb.numberOfLines = 0
+        lb.lineBreakMode = .byTruncatingMiddle
+        lb.font = font ?? appearance.titleFont
+        return lb
+    }
+    
+    func _contentView() -> __NavigationContainerView {
+        let cv = __NavigationContainerView()
+        cv.backgroundColor = UIColor.clear
+        return cv
+    }
+}
+
+// MARK: - Private - Will Set
+private extension CVNavigationItem {
+    func _leftItemWillSet() {
+        leftItem?.removeFromSuperview()
+    }
+    
+    func _rightItemWillSet() {
+        rightItem?.removeFromSuperview()
+    }
+    
+    func _titleViewWillSet() {
+        titleView?.removeFromSuperview()
+    }
+    
+    func _leftItemsWillSet() {
+        if let items = leftItems {
+            for one in items {
+                if one.isKind(of: CVBarButtonItem.self) {
+                    contentView.removeFromSuperview()
+                }
+            }
+        }
+    }
+    
+    func _rightItemsWillSet() {
+        if let items = rightItems {
+            for one in items {
+                if one.isKind(of: CVBarButtonItem.self) {
+                    contentView.removeFromSuperview()
+                }
+            }
+        }
+    }
+
+}
+
+// MARK: - Private - Did Set
+private extension CVNavigationItem {
     func _backButtonItemDidSet() {
         if let item = backButtonItem {
             contentView.addSubview(item)
@@ -165,19 +221,38 @@ fileprivate extension CVNavigationItem {
         }
     }
     
-    func _leftItemWillSet() {
-        leftItem?.removeFromSuperview()
+    func _backButtonItemHiddenDidSet() {
+        if backButtonItemHidden {
+            backButtonItem?.isHidden = true
+            
+        } else {
+            
+            if let item = backButtonItem {
+                item.isHidden = false
+            } else {
+                
+                var image: UIImage?
+                if let bundlePath = Bundle.main.path(forResource: "CVNavigation", ofType: "bundle") {
+                    
+                    let suffix = UIScreen.main.scale == 2 ? "@2x" : UIScreen.main.scale == 3 ? "@3x" : "@1x"
+                    
+                    if let imagePath = Bundle(path: bundlePath)?.path(forResource: "default_back\(suffix)", ofType: "png") {
+                        image = UIImage(contentsOfFile: imagePath)
+                    }
+                }
+                
+                backButtonItem = CVBarButtonItem(title: "返回", image: image, target: viewController, action: #selector(UIViewController.backToPrevious))
+            }
+            
+        }
     }
     
     func _leftItemDidSet() {
         if let item = leftItem {
+            backButtonItemHidden = true
             contentView.addSubview(item)
             updateFrame()
         }
-    }
-    
-    func _rightItemWillSet() {
-        rightItem?.removeFromSuperview()
     }
     
     func _rightItemDidSet() {
@@ -204,11 +279,6 @@ fileprivate extension CVNavigationItem {
         updateFrame()
     }
     
-    // MARK: -
-    func _titleViewWillSet() {
-        titleView?.removeFromSuperview()
-    }
-    
     func _titleViewDidSet() {
         if titleView != nil {
             contentView.addSubview(titleView!)
@@ -216,34 +286,15 @@ fileprivate extension CVNavigationItem {
         }
     }
     
-    func _leftItemsWillSet() {
-        if let items = leftItems {
-            for one in items {
-                if one.isKind(of: CVBarButtonItem.self) {
-                    contentView.removeFromSuperview()
-                }
-            }
-        }
-    }
-    
     func _leftItemsDidSet() {
         if let items = leftItems {
+            backButtonItemHidden = true
             for one in items {
                 if one.isKind(of: CVBarButtonItem.self) {
                     contentView.addSubview(one)
                 }
             }
             updateFrame()
-        }
-    }
-    
-    func _rightItemsWillSet() {
-        if let items = rightItems {
-            for one in items {
-                if one.isKind(of: CVBarButtonItem.self) {
-                    contentView.removeFromSuperview()
-                }
-            }
         }
     }
     
@@ -256,21 +307,5 @@ fileprivate extension CVNavigationItem {
             }
             updateFrame()
         }
-    }
-    
-    // MARK: -
-    func _titleLabel() -> UILabel {
-        let lb = UILabel(frame: CGRect.zero)
-        lb.textColor = textColor ?? appearance.titleColor
-        lb.numberOfLines = 0
-        lb.lineBreakMode = .byTruncatingMiddle
-        lb.font = font ?? appearance.titleFont
-        return lb
-    }
-    
-    func _contentView() -> __NavigationContainerView {
-        let cv = __NavigationContainerView()
-        cv.backgroundColor = UIColor.clear
-        return cv
     }
 }

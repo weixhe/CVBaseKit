@@ -41,6 +41,15 @@ class Home_2ViewController: UIViewController {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
         titleView.backgroundColor = UIColor.red
         cv_navigationItem?.titleView = titleView
+        
+        
+        
+        let button = UIButton(type: .custom)
+        button.setTitle("搜索", for: .normal)
+        button.frame = CGRect(x: 10, y: 100, width: 60, height: 40)
+        button.backgroundColor = UIColor.brown
+        button.addTarget(self, action: #selector(onClickButtonAction), for: .touchUpInside)
+        view.addSubview(button)
     }
     
 
@@ -50,6 +59,10 @@ class Home_2ViewController: UIViewController {
     
     @objc func share() {
         CVLog("share to friend")
+    }
+    
+    @objc func onClickButtonAction() {
+        self.navigationController?.pushViewController(HomeSearchViewController(), animated: true)
     }
     
     /*
