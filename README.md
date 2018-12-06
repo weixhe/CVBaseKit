@@ -10,6 +10,7 @@ pod 'CVBaseKit/Global/CVConst'    // 引入全局方法，声明，类似OC中�
 pod 'CVBaseKit/Components'        // 引入所有组件
 pod 'CVBaseKit/Components/CVTabBarController'     // 引入组件 - tabBar
 pod 'CVBaseKit/Components/CVNavigationController'     // 引入组件 - navBar
+pod 'CVBaseKit/Components/CVSearchViewController'     // 引入组件 - nav-search
 ```
 ### 使用方法
 #### 1、CVDevice的使用方法
@@ -151,9 +152,28 @@ pod 'CVBaseKit/Components/CVNavigationController'     // 引入组件 - navBar
   cv_navigationItem?.titleView = titleView
   ```
   
+  #### 5. CVSearchViewController
   
-  
-  
+  使用本类需要用到CVNavigationBar，并且用到了继承
+  ```
+  class HomeSearchViewController: CVSearchViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.searchTF.placeholder = "输入文字"
+        self.showCancel = true
+        
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        leftView.backgroundColor = UIColor.red
+        self.leftView = leftView
+        
+        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+        rightView.backgroundColor = UIColor.brown
+        self.rightView = rightView
+    }
+  }
+  ```
   
   
   
