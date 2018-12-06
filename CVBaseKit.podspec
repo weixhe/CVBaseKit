@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
     end
     ss.subspec 'CVSearchViewController' do |sss|
       sss.source_files = "CVBaseKit/Components/CVSearchViewController/*.{swift}"   # 需要托管的源代码路径
+      sss.dependency "CVBaseKit/Components/CVNavigationController"    # 依赖自身的navBar
     end
   end
 
