@@ -42,7 +42,11 @@ extension CVSearchViewController {
     
     open override func viewWillLayoutSubviews() {
         
-        updateSearchTFFrame()
+        updateFrame()
+    }
+    
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        viewWillLayoutSubviews()
     }
 }
 
@@ -75,7 +79,20 @@ private extension CVSearchViewController {
 private extension CVSearchViewController {
     
     /// 更新搜索框的高度
-    func updateSearchTFFrame() {
+    func updateFrame() {
+        
+        var safe_l: CGFloat = 0
+        var safe_r: CGFloat = 0
+        if let view = UIApplication.shared.keyWindow {
+            if #available(iOS 11.0, *) {
+                safe_l = view.safeAreaInsets.left
+                safe_r = view.safeAreaInsets.right
+            }
+        }
+        
+        let totalWidth: CGFloat = self.cv_navigationBar!.frame.width - safe_l - safe_r
+        let totalHeight: CGFloat = self.cv_navigationBar!.frame.height
+
         
         var LRWidth: CGFloat = 0    // 左侧view + 右侧view + 两侧的margin， 剩下的就是searchTF 的宽度
         
@@ -84,12 +101,32 @@ private extension CVSearchViewController {
         if showCancel { LRWidth += cancelBtn.frame.width }
         LRWidth += Margin * 2
         
-        searchTF.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.cv_navigationBar!.frame.width - LRWidth, height: DefaultSearchTFHeight))
+        searchTF.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: totalWidth - LRWidth, height: DefaultSearchTFHeight))
         
-        let centerX = searchTF.frame.width / 2 + (leftView != nil ? leftView!.frame.width : 0) + Margin
-        searchTF.center = CGPoint(x: centerX,
-                                  y: self.cv_navigationBar!.frame.height - DefaultBarHeight / 2)
+        let centerX = searchTF.frame.width / 2 + (leftView != nil ? leftView!.frame.width : 0) + safe_l + Margin
+        searchTF.center = CGPoint(x: centerX, y: totalHeight - DefaultBarHeight / 2)
         
+        
+        if showCancel {
+            
+            cancelBtn.isHidden = false
+            cancelBtn.center = CGPoint(x: totalWidth - cancelBtn.frame.width / 2 + safe_l,
+                                       y: totalHeight - DefaultBarHeight / 2)
+            if let view = rightView {
+                view.center = CGPoint(x: cancelBtn.frame.minX - view.frame.width / 2,
+                                      y: totalHeight - DefaultBarHeight / 2)
+            }
+        } else {
+            if let view = rightView {
+                view.center = CGPoint(x: totalWidth - view.frame.width / 2 + safe_l,
+                                      y: totalHeight - DefaultBarHeight / 2)
+            }
+        }
+        
+        if let view = leftView {
+            view.center = CGPoint(x: view.frame.width / 2 + safe_l,
+                                  y: totalHeight - DefaultBarHeight / 2)
+        }
     }
     
     func assert_bar() {
@@ -148,39 +185,26 @@ private extension CVSearchViewController {
         if let lv = leftView {
             assert_bar()
             self.cv_navigationBar!.addSubview(lv)
-            lv.center = CGPoint(x: lv.frame.width / 2,
-                                y: self.cv_navigationBar!.frame.height - DefaultBarHeight / 2)
         }
-        updateSearchTFFrame()
+        updateFrame()
     }
     
     func _rightViewDidSet() {
         if let rv = rightView {
             assert_bar()
             self.cv_navigationBar!.addSubview(rv)
-            
-            if showCancel {
-                rv.center = CGPoint(x: cancelBtn.frame.minX - rv.frame.width / 2,
-                                    y: self.cv_navigationBar!.frame.height - DefaultBarHeight / 2)
-            } else {
-                rv.center = CGPoint(x: self.cv_navigationBar!.frame.width - rv.frame.width / 2,
-                                    y: self.cv_navigationBar!.frame.height - DefaultBarHeight / 2)
-            }
         }
-        updateSearchTFFrame()
+        updateFrame()
     }
     
     func _showCancelDidSet() {
         if showCancel {
             assert_bar()
             self.cv_navigationBar!.addSubview(cancelBtn)
-            cancelBtn.isHidden = false
-            cancelBtn.center = CGPoint(x: self.cv_navigationBar!.frame.width - cancelBtn.frame.width / 2,
-                                       y: self.cv_navigationBar!.frame.height - DefaultBarHeight / 2)
         } else {
             cancelBtn.isHidden = true
             cancelBtn.removeFromSuperview()
         }
-        updateSearchTFFrame()
+        updateFrame()
     }
 }
